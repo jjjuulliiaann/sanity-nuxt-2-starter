@@ -7,10 +7,11 @@ export default {
 				sites: [
 					{
 						title: "Website ",
-						apiId: process.env.NETLIFY_API_ID,
-						buildHookId: process.env.NETLIFY_BUILD_HOOK_ID,
-						name: process.env.FRONTEND_NAME,
-						url: process.env.FRONTEND_URL,
+						apiId: process.env.SANITY_STUDIO_NETLIFY_API_ID,
+						buildHookId:
+							process.env.SANITY_STUDIO_NETLIFY_BUILD_HOOK_ID,
+						name: process.env.SANITY_STUDIO_FRONTEND_NAME,
+						url: process.env.SANITY_STUDIO_FRONTEND_URL,
 					},
 				],
 			},
