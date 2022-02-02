@@ -1,4 +1,4 @@
-# Sanity Nuxt 2 Starter 🏎
+# Sanity Nuxt 2 Starter 🍿
 
 ## Build Setup
 
