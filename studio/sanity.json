@@ -14,7 +14,8 @@
     "@sanity/desk-tool",
     "@sanity/dashboard",
     "useful-links",
-    "dashboard-widget-netlify"
+    "dashboard-widget-netlify",
+    "@sanity/cli"
   ],
   "env": {
     "development": {
