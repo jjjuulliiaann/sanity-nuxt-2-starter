@@ -12,12 +12,6 @@ export default {
 			name: "title",
 			type: "string",
 		},
-		{
-			title: "Slug",
-			name: "slug",
-			type: "slug",
-			hidden: true,
-		},
 	],
 	preview: {
 		prepare({}) {

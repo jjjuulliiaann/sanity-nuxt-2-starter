@@ -14,7 +14,8 @@
 		"@sanity/desk-tool",
 		"@sanity/dashboard",
 		"useful-links",
-		"dashboard-widget-netlify"
+		"dashboard-widget-netlify",
+		"@sanity/production-preview"
 	],
 	"env": {
 		"development": {
@@ -37,6 +38,10 @@
 		{
 			"implements": "part:@sanity/base/theme/variables/override-style",
 			"path": "themes/studio.css"
+		},
+		{
+			"implements": "part:@sanity/production-preview/resolve-production-url",
+			"path": "./utils/resolveProductionUrl.js"
 		}
 	]
 }
