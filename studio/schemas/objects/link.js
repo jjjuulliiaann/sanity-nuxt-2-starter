@@ -1,0 +1,106 @@
+import { FiFileText, FiLink, FiHome } from "react-icons/fi/";
+
+export default {
+	title: "Link",
+	name: "link",
+	type: "object",
+	fields: [
+		{
+			title: "Type",
+			name: "linkType",
+			type: "string",
+			options: {
+				list: [
+					{ title: "Extern", value: "external" },
+					{ title: "Internal", value: "internal" },
+				],
+				layout: "radio",
+			},
+		},
+		{
+			title: "URL",
+			name: "href",
+			type: "url",
+			hidden: ({ parent }) => parent?.linkType !== "external",
+			validation: (Rule) =>
+				Rule.uri({
+					allowRelative: true,
+					scheme: ["https", "http", "mailto", "tel"],
+				}),
+		},
+		{
+			title: "Title",
+			name: "title",
+			type: "string",
+			hidden: ({ parent }) => parent?.linkType !== "external",
+		},
+		{
+			title: "Open in new tab?",
+			name: "blank",
+			type: "boolean",
+			hidden: ({ parent }) => parent?.linkType !== "external",
+		},
+		{
+			title: "Internal Link",
+			name: "internalLink",
+			type: "reference",
+			hidden: ({ parent }) => parent?.linkType !== "internal",
+			validation: (Rule) =>
+				Rule.custom((internalLink, context) => {
+					console.log(context.parent.linkType);
+					if (
+						context.parent.linkType === "external" ||
+						internalLink
+					) {
+						return true;
+					} else {
+						return "A link target is required.";
+					}
+				}),
+			to: [
+				{ type: "templateHome" },
+				{ type: "templateText" },
+				{ type: "templateProjects" },
+				{ type: "project" },
+			],
+		},
+	],
+	preview: {
+		select: {
+			url: "href",
+			internalTitle: "internalLink.title",
+			internalLink: "internalLink",
+			internalSlug: "internalLink.slug.current",
+			externalTitle: "title",
+			linkType: "linkType",
+		},
+		prepare({
+			url,
+			internalTitle,
+			internalLink,
+			internalSlug,
+			externalTitle,
+			linkType,
+		}) {
+			return {
+				title:
+					linkType === "external"
+						? externalTitle
+							? externalTitle
+							: "Untitled Link"
+						: internalLink && internalTitle
+						? internalSlug
+							? internalTitle
+							: "Home"
+						: "Untitled Link",
+				subtitle: linkType === "external" ? url : "",
+				media:
+					linkType === "external"
+						? FiLink
+						: internalLink && !internalSlug
+						? FiHome
+						: FiFileText,
+			};
+		},
+	},
+};

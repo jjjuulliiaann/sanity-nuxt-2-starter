@@ -1,5 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { FiEye, FiTarget } from "react-icons/fi/";
+import { FiEye } from "react-icons/fi/";
 
 // create document items
 const collectionList = ({ id, defaultOrdering = [] }) =>
@@ -13,4 +13,63 @@ const singletonPage = ({ id, schemaType }) =>
 	);
 
 // navigation structure
-export default () => S.list().title("Content").items([]);
+export default () =>
+	S.list()
+		.title("Content")
+		.items([
+			singletonPage({
+				id: "templateHome",
+				schemaType: "templateHome",
+				preview: false,
+			}),
+
+			S.listItem()
+				.title("Projects")
+				.icon(FiEye)
+				.child(
+					S.list()
+						.title("Projects")
+						.items([
+							collectionList({
+								id: "project",
+								defaultOrdering: [
+									{
+										field: "title",
+										direction: "asc",
+									},
+								],
+							}),
+
+							S.divider(),
+
+							singletonPage({
+								id: "templateProjects",
+								schemaType: "templateProjects",
+							}),
+						])
+				),
+
+			S.divider(),
+
+			collectionList({
+				id: "templateText",
+				defaultOrdering: [
+					{
+						field: "title",
+						direction: "asc",
+					},
+				],
+			}),
+
+			singletonPage({
+				id: "siteNavigation",
+				schemaType: "siteNavigation",
+				preview: false,
+			}),
+
+			singletonPage({
+				id: "siteOptions",
+				schemaType: "siteOptions",
+				preview: false,
+			}),
+		]);

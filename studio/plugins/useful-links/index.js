@@ -29,7 +29,7 @@ class UsefulLinks extends React.Component {
 		return (
 			<div className={styles.container}>
 				<header className={styles.header}>
-					<h2 className={styles.title}>Support</h2>
+					<h2 className={styles.title}>💬</h2>
 				</header>
 				<div className={styles.content}>
 					<h3 className={styles.title}>Deployment</h3>
