@@ -1,12 +1,12 @@
 import React from "react";
-import { FiEye } from "react-icons/fi/";
+import { BiBookAlt } from "react-icons/bi/";
 import { slugify, validateSlug } from "../../../utils/helperFunctions.js";
 
 export default {
 	title: "Projects",
 	name: "project",
 	type: "document",
-	icon: FiEye,
+	icon: BiBookAlt,
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	fields: [
 		{

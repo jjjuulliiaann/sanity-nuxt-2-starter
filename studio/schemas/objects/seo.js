@@ -1,10 +1,7 @@
-import { FiLink2, FiExternalLink } from "react-icons/fi/";
-
 export default {
 	title: "SEO",
 	name: "seo",
 	type: "object",
-	icon: FiLink2,
 	collapsible: true,
 	collapsed: true,
 	fieldsets: [

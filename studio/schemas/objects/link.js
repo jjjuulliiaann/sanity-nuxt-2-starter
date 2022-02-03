@@ -1,4 +1,4 @@
-import { FiFileText, FiLink, FiHome } from "react-icons/fi/";
+import { BiFile, BiLink, BiHome } from "react-icons/bi/";
 
 export default {
 	title: "Link",
@@ -96,10 +96,10 @@ export default {
 				subtitle: linkType === "external" ? url : "",
 				media:
 					linkType === "external"
-						? FiLink
+						? BiLink
 						: internalLink && !internalSlug
-						? FiHome
-						: FiFileText,
+						? BiHome
+						: BiFile,
 			};
 		},
 	},

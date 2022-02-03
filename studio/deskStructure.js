@@ -1,6 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
 import PreviewComponent from "./utils/preview";
-import { FiEye } from "react-icons/fi/";
+import { BiBookAlt } from "react-icons/bi/";
 
 // create preview view
 const previewComponentView = S.view
@@ -38,7 +38,7 @@ export default () =>
 
 			S.listItem()
 				.title("Projects")
-				.icon(FiEye)
+				.icon(BiBookAlt)
 				.child(
 					S.list()
 						.title("Projects")

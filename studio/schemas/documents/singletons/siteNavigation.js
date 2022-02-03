@@ -1,10 +1,10 @@
-import { FiFileText, FiGlobe } from "react-icons/fi/";
+import { BiMapAlt } from "react-icons/bi/";
 
 export default {
 	title: "Navigation",
 	name: "siteNavigation",
 	type: "document",
-	icon: FiGlobe,
+	icon: BiMapAlt,
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	fields: [
 		{

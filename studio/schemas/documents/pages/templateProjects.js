@@ -1,11 +1,11 @@
-import { FiFileText } from "react-icons/fi/";
+import { BiFile } from "react-icons/bi/";
 import { slugify, validateSlug } from "../../../utils/helperFunctions.js";
 
 export default {
 	title: "Page",
 	name: "templateProjects",
 	type: "document",
-	icon: FiFileText,
+	icon: BiFile,
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	fields: [
 		{

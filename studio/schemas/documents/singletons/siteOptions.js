@@ -1,10 +1,10 @@
-import { FiMoreHorizontal } from "react-icons/fi/";
+import { BiSliderAlt } from "react-icons/bi/";
 
 export default {
 	title: "Options",
 	name: "siteOptions",
 	type: "document",
-	icon: FiMoreHorizontal,
+	icon: BiSliderAlt,
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	fieldsets: [
 		{

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FiMail, FiPhone } from "react-icons/fi/";
 
 import styles from "./UsefulLinks.css";
 

@@ -1,5 +1,3 @@
-import { FiImage } from "react-icons/fi/";
-
 export default {
 	title: "Image",
 	name: "picture",

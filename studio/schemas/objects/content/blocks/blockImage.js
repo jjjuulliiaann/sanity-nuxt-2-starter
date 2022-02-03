@@ -1,10 +1,10 @@
-import { FiImage } from "react-icons/fi/";
+import { BiImage } from "react-icons/bi/";
 import { PreviewBlockImage } from "./previews";
 
 export default {
 	title: "Image",
 	name: "blockImage",
-	icon: FiImage,
+	icon: BiImage,
 	type: "object",
 	fields: [
 		{

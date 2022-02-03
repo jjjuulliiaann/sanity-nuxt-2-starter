@@ -1,16 +1,21 @@
-import { FiHome } from "react-icons/fi/";
+import { BiHome } from "react-icons/bi/";
 
 export default {
 	title: "Home",
 	name: "templateHome",
 	type: "document",
-	icon: FiHome,
+	icon: BiHome,
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	fields: [
 		{
 			title: "Title",
 			name: "title",
 			type: "string",
+		},
+		{
+			title: "Content",
+			name: "content",
+			type: "contentFull",
 		},
 	],
 	preview: {

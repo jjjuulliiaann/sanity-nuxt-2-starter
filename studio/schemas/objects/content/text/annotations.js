@@ -1,4 +1,4 @@
-import { FiLink, FiPaperclip } from "react-icons/fi/";
+import { BiLink, BiPaperclip } from "react-icons/bi/";
 
 // Annotate text with additional information
 export const annotations = [
@@ -7,7 +7,7 @@ export const annotations = [
 		name: "link",
 		type: "object",
 		blockEditor: {
-			icon: FiLink,
+			icon: BiLink,
 		},
 		fields: [
 			{
@@ -58,7 +58,7 @@ export const annotations = [
 		name: "download",
 		type: "file",
 		blockEditor: {
-			icon: FiPaperclip,
+			icon: BiPaperclip,
 		},
 	},
 ];
