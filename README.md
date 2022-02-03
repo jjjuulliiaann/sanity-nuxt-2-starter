@@ -24,9 +24,9 @@ In Netlify add two separate sites with "studio" / "web" as the base directories.
 
 ## Studio: Sanity CMS
 
-Check out the Sanity [resources](https://www.sanity.io/docs/overview-introduction).
+For detailed explanation on how things work, check out the Sanity [resources](https://www.sanity.io/docs/overview-introduction).
 
-### Deploy Button
+### Netlify Deploy Button
 
 With the Netlify Deploy Plugin the studio user can trigger a static build from the Sanity dashboard. In Netlify you need to set up a Build hook in Settings > Build & deploy. Copy the build hook id and save it as a environment variable.
 
@@ -37,7 +37,7 @@ Add the same variables on Netlify or your hosting platform. You get the Netlify 
 
 ## Web: Nuxt 2 Frontend
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+For detailed explanation on how things work, check out the Nuxt [documentation](https://nuxtjs.org).
 
 ### Environment variables
 
