@@ -1,7 +1,7 @@
 <template>
 	<nuxt-link
 		v-if="linkType === 'internal'"
-		:to="slug ? { path: subPath + slug } : '/'"
+		:to="slug ? { path: `/${subPath}${slug}` } : '/'"
 		class="nav-link"
 	>
 		<slot></slot>
@@ -64,6 +64,8 @@ export default {
 	computed: {
 		subPath() {
 			return this.linkPaths[this.template]
+				? this.linkPaths[this.template]
+				: ''
 		},
 	},
 }

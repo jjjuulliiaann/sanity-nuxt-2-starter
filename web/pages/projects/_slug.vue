@@ -60,7 +60,7 @@ export default {
 
 .project {
 	position: relative;
-	min-height: 80vh;
+	min-height: 90vh;
 	padding: 1rem;
 }
 

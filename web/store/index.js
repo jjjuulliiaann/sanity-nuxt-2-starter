@@ -1,6 +1,6 @@
 export const state = () => ({
 	siteOptions: {},
-	navigation: {},
+	siteNavigation: {},
 	pagesSlugs: [],
 	projectsSlugs: [],
 	window: {
@@ -16,8 +16,8 @@ export const mutations = {
 	setSiteOptions(state, options) {
 		state.siteOptions = options
 	},
-	setNavigation(state, navigation) {
-		state.navigation = navigation
+	setSiteNavigation(state, navigation) {
+		state.siteNavigation = navigation
 	},
 	setPagesSlugs(state, slugs) {
 		state.pagesSlugs = slugs

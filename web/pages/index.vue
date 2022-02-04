@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="home">
 		<h1>{{ page.title }}</h1>
 
 		<div class="blockcontent text-01">
@@ -41,9 +41,9 @@ export default {
 <style scoped>
 @import '~/styles/variables.css';
 
-main {
+.home {
 	position: relative;
-	min-height: 80vh;
+	min-height: 90vh;
 	padding: 1rem;
 }
 

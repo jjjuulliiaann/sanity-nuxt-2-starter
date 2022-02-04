@@ -1,7 +1,7 @@
 <template>
 	<footer class="footer">
 		<p>
-			{{ siteOptions.name }}, ©
+			© {{ year }},
 			<a href="https:julianschmidt.me" target="_blank">Julian Schmidt</a>
 		</p>
 	</footer>

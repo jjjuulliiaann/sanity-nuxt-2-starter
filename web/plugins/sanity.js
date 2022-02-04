@@ -1,41 +1,34 @@
 import imageUrlBuilder from '@sanity/image-url'
 
+export const linkQuery = `
+	_type == "link" && linkType == "internal" => {
+		_type,
+		linkType,
+		"slug": internalLink->slug.current,
+		"title": internalLink->title,
+		"template": internalLink->_type
+	},
+	_type == "link" && linkType == "external" => {
+		...,
+		"title": coalesce(title, href)
+	}
+`
+
 export const contentBlockQuery = `
 	...,
 	image {..., asset->},
 	markDefs[]{
 		...,
 		_type == "download" => {"url": asset->url},
-		_type == "link" && linkType == "internal" => {
-			_type,
-			linkType,
-			"slug": internalLink->slug.current,
-			"title": internalLink->title,
-			"template": internalLink->_type
-		},
-		_type == "link" && linkType == "external" => {
-			...,
-			"title": coalesce(title, href)
-		}
+		${linkQuery}
 	}
 `
 
-const siteOptionsQuery = `{
-	"siteOptions": *[_id == "siteOptions"] [0] {
+const siteQuery = `
+{
+	"siteOptions": *[_id == "siteOptions"][0] {
 		...,
 		"pageTitle": pageTitle,
-		navigation[]{linkType == "internal" => {
-			_type,
-				linkType,
-				"slug": internalLink->slug.current,
-				"title": internalLink->title,
-				"template": internalLink->_type
-			},
-			linkType == "external" => {
-				...,
-				"title": coalesce(title, href)
-			}
-		},
 		footer[] {
 			${contentBlockQuery}
 		},
@@ -49,6 +42,11 @@ const siteOptionsQuery = `{
 		"projectSlugs": *[_type == "project"][].slug.current,
 		"infoSlugs": *[_type == "templateText"][].slug.current,
 		backgroundImages[]{backgroundSetImages[]{..., asset->}}
+	},
+	"siteNavigation": *[_id == "siteNavigation"][0] {
+		navMain[]{
+			${linkQuery}
+		}
 	}
 }
 `
@@ -59,7 +57,8 @@ export default ({ $sanity, store }, inject) => {
 	inject('builder', builder)
 
 	// load global data
-	return $sanity.fetch(siteOptionsQuery).then(({ siteOptions }) => {
+	return $sanity.fetch(siteQuery).then(({ siteOptions, siteNavigation }) => {
 		store.commit('setSiteOptions', siteOptions)
+		store.commit('setSiteNavigation', siteNavigation)
 	})
 }

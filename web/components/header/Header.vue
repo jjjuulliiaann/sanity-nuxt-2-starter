@@ -5,7 +5,7 @@
 				siteOptions ? siteOptions.name : 'Untitled'
 			}}</n-link>
 		</h1>
-		<HeaderNavigation :menu="mainMenu" />
+		<HeaderNavigation />
 	</header>
 </template>
 
@@ -14,7 +14,6 @@ export default {
 	data() {
 		return {
 			siteOptions: this.$store.state.siteOptions,
-			mainMenu: this.$store.getters.getMainMenu,
 		}
 	},
 }
@@ -24,6 +23,9 @@ export default {
 @import '~/styles/variables.css';
 
 header {
+	display: flex;
+	justify-content: space-between;
 	padding: 1rem;
+	border-bottom: 1px solid var(--clr-light);
 }
 </style>
