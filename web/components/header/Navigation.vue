@@ -35,9 +35,12 @@ export default {
 @import '~/styles/variables.css';
 
 .navigation {
-	display: flex;
 	list-style: none;
 	margin: 0 -1rem;
+
+	@media (--width-mobile-03) {
+		display: flex;
+	}
 }
 
 .navigation__item {

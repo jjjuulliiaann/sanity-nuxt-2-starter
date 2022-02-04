@@ -29,9 +29,12 @@ export default {
 
 .footer {
 	position: relative;
-	display: flex;
-	justify-content: space-between;
 	padding: 1rem;
+
+	@media (--width-tablet-01) {
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
 .footer a {

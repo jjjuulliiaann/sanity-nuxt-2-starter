@@ -24,9 +24,12 @@ export default {
 @import '~/styles/variables.css';
 
 header {
-	display: flex;
 	justify-content: space-between;
 	padding: 1rem;
 	border-bottom: 1px solid var(--clr-light);
+
+	@media (--width-tablet-01) {
+		display: flex;
+	}
 }
 </style>

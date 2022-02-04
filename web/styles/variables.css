@@ -1,22 +1,23 @@
-@custom-media --media-min-mobile (min-width: 375px);
-@custom-media --media-min-phablet (min-width: 450px);
-@custom-media --media-min-tablet (min-width: 700px);
-@custom-media --media-min-bigtablet (min-width: 850px);
-@custom-media --media-min-desktop (min-width: 1000px);
-@custom-media --media-min-desktop-hd (min-width: 1300px);
-@custom-media --media-min-desktop-huge (min-width: 1500px);
-@custom-media --media-min-maximum (min-width: 2000px);
-@custom-media --media-max-height-large (max-height: 900px);
-@custom-media --media-max-height-medium (max-height: 750px);
-@custom-media --media-max-height-small (max-height: 550px);
+@custom-media --width-mobile-01 (min-width: 320px);
+@custom-media --width-mobile-02 (min-width: 375px);
+@custom-media --width-mobile-03 (min-width: 450px);
+
+@custom-media --width-tablet-01 (min-width: 700px);
+@custom-media --width-tablet-02 (min-width: 850px);
+
+@custom-media --width-desktop-01 (min-width: 1000px);
+@custom-media --width-desktop-02 (min-width: 1300px);
+@custom-media --width-desktop-03 (min-width: 1500px);
+@custom-media --width-desktop-04 (min-width: 2000px);
+
+@custom-media --height-01 (max-height: 550px);
+@custom-media --height-02 (max-height: 750px);
+@custom-media --height-03 (max-height: 900px);
 
 :root {
-	--font-regular: 'Scto Grotesk A Regular', sans-serif;
 	--clr-black: rgb(0, 0, 0);
 	--clr-white: rgb(255, 255, 255);
 	--clr-light: rgb(219, 219, 219);
 	--header-mobile: 3.8rem;
 	--header-tablet: 4.6rem;
-	--unit-M01: 1.2rem;
-	--unit-01: 1.4rem;
 }
