@@ -10,7 +10,8 @@
 
 <script>
 import groq from 'groq'
-import { contentBlockQuery } from '~/plugins/sanity'
+import { contentBlockQuery, seoQuery } from '~/plugins/sanity'
+import seo from '~/mixins/seo.js'
 
 const query = groq`
 	*[_type == 'templateText' && slug.current == $slug] | order(date desc, _updatedAt desc) [0]{
@@ -18,10 +19,13 @@ const query = groq`
 		content[] {
 			${contentBlockQuery}
 		},
+		${seoQuery}
 	}
 `
 
 export default {
+	mixins: [seo],
+
 	data() {
 		return {
 			page: {},
@@ -36,12 +40,6 @@ export default {
 			this.page = result
 		} catch (error) {
 			console.error(error)
-		}
-	},
-
-	head() {
-		return {
-			title: this.title,
 		}
 	},
 }

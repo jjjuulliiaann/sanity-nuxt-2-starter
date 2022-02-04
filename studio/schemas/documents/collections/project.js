@@ -43,6 +43,11 @@ export default {
 				},
 			],
 		},
+		{
+			title: "SEO",
+			name: "seo",
+			type: "seo",
+		},
 	],
 
 	preview: {

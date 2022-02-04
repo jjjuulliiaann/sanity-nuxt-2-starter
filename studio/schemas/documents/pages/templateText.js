@@ -29,5 +29,10 @@ export default {
 			name: "content",
 			type: "contentParagraph",
 		},
+		{
+			title: "SEO",
+			name: "seo",
+			type: "seo",
+		},
 	],
 };

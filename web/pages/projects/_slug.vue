@@ -11,6 +11,7 @@
 <script>
 import groq from 'groq'
 import { contentBlockQuery } from '~/plugins/sanity'
+import seo from '~/mixins/seo.js'
 
 const query = groq`
 	*[_type == 'project' && slug.current == $slug] | order(date desc, _updatedAt desc) [0]{
@@ -22,6 +23,8 @@ const query = groq`
 `
 
 export default {
+	mixins: [seo],
+
 	validate({ params, store, query }) {
 		// check info slugs
 		return (
@@ -44,12 +47,6 @@ export default {
 			this.page = result
 		} catch (error) {
 			console.error(error)
-		}
-	},
-
-	head() {
-		return {
-			title: this.title,
 		}
 	},
 }

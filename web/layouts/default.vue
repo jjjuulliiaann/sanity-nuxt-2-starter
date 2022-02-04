@@ -35,26 +35,27 @@ export default {
 				{
 					hid: 'description',
 					name: 'description',
-					content: this.siteOptions.metaDescription,
+					content: this.siteOptions.seo.metaDescription,
 				},
 				{
 					hid: 'og:description',
 					name: 'og:description',
-					content: this.siteOptions.metaDescription,
+					content: this.siteOptions.seo.metaDescription,
 				},
 				{
 					hid: 'keywords',
 					name: 'keywords',
-					content: this.siteOptions.metaKeywords
-						? this.siteOptions.metaKeywords.join(',')
+					content: this.siteOptions.seo.metaKeywords
+						? this.siteOptions.seo.metaKeywords.join(',')
 						: '',
 				},
 				{
 					hid: 'og:image',
 					name: 'og:image',
 					content:
-						this.siteOptions.image && this.siteOptions.image.asset
-							? this.siteOptions.image.asset.url
+						this.siteOptions.seo.ogImage &&
+						this.siteOptions.seo.ogImage.asset
+							? this.siteOptions.seo.ogImage.asset.url
 							: '',
 				},
 			],

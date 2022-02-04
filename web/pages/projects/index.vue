@@ -24,6 +24,7 @@
 
 <script>
 import groq from 'groq'
+import seo from '~/mixins/seo.js'
 
 const query = groq`{
 	"page": *[_id == "templateProjects"][0] {
@@ -36,6 +37,8 @@ const query = groq`{
 }`
 
 export default {
+	mixins: [seo],
+
 	data() {
 		return {
 			page: {},
