@@ -2,8 +2,11 @@
 	<footer class="footer">
 		<p>
 			© {{ year }},
-			<a href="https:julianschmidt.me" target="_blank">Julian Schmidt</a>
+			<a href="https:julianschmidt.me" target="_blank"
+				>Julian Schmidt {{ siteOptions.copyrightText }}</a
+			>
 		</p>
+		<FooterNavigation v-if="siteOptions.footerLinks" />
 	</footer>
 </template>
 
@@ -26,6 +29,8 @@ export default {
 
 .footer {
 	position: relative;
+	display: flex;
+	justify-content: space-between;
 	padding: 1rem;
 }
 

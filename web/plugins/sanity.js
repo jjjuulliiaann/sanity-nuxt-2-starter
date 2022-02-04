@@ -24,24 +24,24 @@ export const contentBlockQuery = `
 	}
 `
 
+export const seoQuery = `
+	seo {
+		...,
+		ogImage{asset->}
+	}
+`
+
 const siteQuery = `
 {
 	"siteOptions": *[_id == "siteOptions"][0] {
 		...,
-		"pageTitle": pageTitle,
-		footer[] {
+		footerLinks[] {
+			${linkQuery}
+		},
+		cookieText[]{
 			${contentBlockQuery}
 		},
-		ogImage {..., asset->},
-		"sectionIds": {
-			"about": *[_id == "about"][0].slug.current,
-			"services": *[_id == "services"][0].slug.current,
-			"projects": *[_id == "projects"][0].slug.current,
-			"contact": *[_id == "contact"][0].slug.current,
-		},
-		"projectSlugs": *[_type == "project"][].slug.current,
-		"infoSlugs": *[_type == "templateText"][].slug.current,
-		backgroundImages[]{backgroundSetImages[]{..., asset->}}
+		${seoQuery}
 	},
 	"siteNavigation": *[_id == "siteNavigation"][0] {
 		navMain[]{

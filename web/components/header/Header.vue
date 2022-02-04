@@ -1,9 +1,10 @@
 <template>
 	<header class="header">
 		<h1>
-			<n-link to="/">{{
-				siteOptions ? siteOptions.name : 'Untitled'
-			}}</n-link>
+			<n-link to="/"
+				>{{ siteOptions ? siteOptions.name : 'Untitled' }}
+				{{ siteOptions.headerTitle }}</n-link
+			>
 		</h1>
 		<HeaderNavigation />
 	</header>
