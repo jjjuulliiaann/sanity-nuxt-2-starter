@@ -9,15 +9,15 @@ export default {
 	fields: [
 		{
 			title: "Image",
-			name: "picture",
+			name: "image",
 			type: "picture",
 			validation: (Rule) => Rule.required(),
 		},
 	],
 	preview: {
 		select: {
-			image: "picture.asset",
-			title: "picture.asset.originalFilename",
+			image: "image.asset",
+			title: "image.asset.originalFilename",
 		},
 		component: PreviewBlockImage,
 	},

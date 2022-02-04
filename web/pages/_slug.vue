@@ -12,13 +12,14 @@
 import groq from 'groq'
 import { contentBlockQuery } from '~/plugins/sanity'
 
-const query = groq`*[(
-	_id == "templateHome")][0]{
+const query = groq`
+	*[_type == 'templateText' && slug.current == $slug] | order(date desc, _updatedAt desc) [0]{
 		...,
 		content[] {
 			${contentBlockQuery}
 		},
-}`
+	}
+`
 
 export default {
 	data() {
@@ -28,11 +29,19 @@ export default {
 	},
 
 	async fetch() {
+		const params = this.$route.params
+
 		try {
-			const result = await this.$sanity.fetch(query)
+			const result = await this.$sanity.fetch(query, params)
 			this.page = result
 		} catch (error) {
 			console.error(error)
+		}
+	},
+
+	head() {
+		return {
+			title: this.title,
 		}
 	},
 }
@@ -49,10 +58,5 @@ main {
 
 .blockcontent {
 	padding: 2rem 0;
-}
-
-.blockcontent >>> img {
-	max-width: 10rem;
-	height: auto;
 }
 </style>

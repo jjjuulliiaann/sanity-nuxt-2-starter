@@ -4,7 +4,7 @@ export default {
 
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
-		title: 'Sanity Nuxt 2 Starter',
+		titleTemplate: '…',
 		htmlAttrs: {
 			lang: 'de',
 		},
@@ -16,8 +16,50 @@ export default {
 			},
 			{ hid: 'description', name: 'description', content: '' },
 			{ name: 'format-detection', content: 'telephone=no' },
+			{
+				hid: 'msapplication-TileColor',
+				name: 'msapplication-TileColor',
+				content: '#ffffff',
+			},
+			{
+				hid: 'msapplication-config',
+				name: 'msapplication-config',
+				content: '/favicons/browserconfig.xml',
+			},
+			{
+				hid: 'theme-color',
+				name: 'theme-color',
+				content: '#ffffff',
+			},
 		],
-		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+		link: [
+			{
+				rel: 'apple-touch-icon',
+				sizes: '180x180',
+				href: '/favicons/apple-touch-icon.png',
+			},
+			{
+				rel: 'icon',
+				type: 'image/png',
+				sizes: '32x32',
+				href: '/favicons/favicon-32x32.png',
+			},
+			{
+				rel: 'icon',
+				type: 'image/png',
+				sizes: '16x16',
+				href: '/favicons/favicon-16x16.png',
+			},
+			{
+				rel: 'mask-icon',
+				href: '/favicons/safari-pinned-tab.svg',
+				color: '#000000',
+			},
+			{
+				rel: 'shortcut icon',
+				href: '/favicons/favicon.ico',
+			},
+		],
 	},
 
 	router: {
@@ -29,10 +71,15 @@ export default {
 	},
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
-	css: [],
+	css: [{ src: '~/styles/reset.css' }, { src: '~/styles/global.css' }],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-	plugins: [],
+	plugins: [
+		'~/plugins/sanity.js',
+		'~/plugins/preview.client.js',
+		'~/plugins/lazysizes.client.js',
+		'~/plugins/resize.client.js',
+	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
 	components: true,
@@ -47,13 +94,63 @@ export default {
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [],
 
+	generate: {
+		fallback: true,
+	},
+
 	// Build Configuration: https://go.nuxtjs.dev/config-build
-	build: {},
+	build: {
+		postcss: {
+			plugins: {
+				'postcss-import': {},
+				'postcss-preset-env': {
+					stage: 3,
+					features: {
+						'color-mod-function': { unresolved: 'warn' },
+						'nesting-rules': true,
+						'custom-media-queries': {
+							preserve: false,
+						},
+						'custom-properties': {
+							preserve: false,
+						},
+					},
+				},
+			},
+		},
+
+		/*
+		 ** You can extend webpack config here
+		 */
+		extend(config, ctx, { isClient, loaders: { vue } }) {
+			// Handle data-src for lazysizes
+			if (isClient) {
+				vue.transformAssetUrls.img = ['data-src', 'src']
+				vue.transformAssetUrls.source = ['data-srcset', 'srcset']
+			}
+		},
+
+		extend(config, { isDev, isClient, loaders: { vue } }) {
+			if (isClient) {
+				vue.transformAssetUrls.img = ['data-src', 'src']
+				vue.transformAssetUrls.source = ['data-srcset', 'srcset']
+			}
+		},
+	},
 
 	sanity: {
 		projectId: process.env.SANITY_PROJECT_ID,
 		dataset: process.env.SANITY_DATASET,
 		apiVersion: '2022-02-02',
 		useCdn: true,
+		additionalClients: {
+			preview: {
+				projectId: process.env.SANITY_PROJECT_ID,
+				dataset: process.env.SANITY_DATASET,
+				apiVersion: '2022-02-02',
+				useCdn: false,
+				withCredentials: true, // necessary for iframe preview
+			},
+		},
 	},
 }

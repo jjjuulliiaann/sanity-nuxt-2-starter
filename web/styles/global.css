@@ -1,0 +1,41 @@
+@import '~/styles/variables.css';
+@import '~/styles/typography.css';
+
+::selection {
+	background: rgba(0, 0, 0, 0.99);
+	color: rgb(255, 255, 255);
+}
+::-moz-selection {
+	background: rgba(0, 0, 0, 0.99);
+	color: rgb(255, 255, 255);
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	-webkit-tap-highlight-color: transparent;
+	background: var(--clr-white);
+	color: var(--clr-black);
+}
+
+/* layout */
+#__layout > div {
+	min-height: 100vh;
+}
+
+.main-article {
+	padding: 1rem;
+}
+
+/* text */
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+.blockcontent a {
+	text-decoration: underline;
+}

@@ -47,7 +47,6 @@ export default {
 			hidden: ({ parent }) => parent?.linkType !== "internal",
 			validation: (Rule) =>
 				Rule.custom((internalLink, context) => {
-					console.log(context.parent.linkType);
 					if (
 						context.parent.linkType === "external" ||
 						internalLink

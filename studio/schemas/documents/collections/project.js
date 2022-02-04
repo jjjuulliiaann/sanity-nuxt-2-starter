@@ -26,8 +26,8 @@ export default {
 			validation: validateSlug,
 		},
 		{
-			title: "Description",
-			name: "description",
+			title: "Content",
+			name: "content",
 			type: "contentParagraph",
 		},
 		{

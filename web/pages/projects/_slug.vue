@@ -1,8 +1,8 @@
 <template>
-	<main>
+	<main class="project">
 		<h1>{{ page.title }}</h1>
 
-		<div class="blockcontent text-01">
+		<div v-if="page.content" class="blockcontent text-01">
 			<ElementsTextBlock :blocks="page.content" />
 		</div>
 	</main>
@@ -12,15 +12,24 @@
 import groq from 'groq'
 import { contentBlockQuery } from '~/plugins/sanity'
 
-const query = groq`*[(
-	_id == "templateHome")][0]{
+const query = groq`
+	*[_type == 'project' && slug.current == $slug] | order(date desc, _updatedAt desc) [0]{
 		...,
 		content[] {
 			${contentBlockQuery}
 		},
-}`
+	}
+`
 
 export default {
+	validate({ params, store, query }) {
+		// check info slugs
+		return (
+			store.state.projectsSlugs.includes(params.slug) ||
+			query.preview === 'true'
+		)
+	},
+
 	data() {
 		return {
 			page: {},
@@ -28,11 +37,19 @@ export default {
 	},
 
 	async fetch() {
+		const params = this.$route.params
+
 		try {
-			const result = await this.$sanity.fetch(query)
+			const result = await this.$sanity.fetch(query, params)
 			this.page = result
 		} catch (error) {
 			console.error(error)
+		}
+	},
+
+	head() {
+		return {
+			title: this.title,
 		}
 	},
 }
@@ -41,7 +58,7 @@ export default {
 <style scoped>
 @import '~/styles/variables.css';
 
-main {
+.project {
 	position: relative;
 	min-height: 80vh;
 	padding: 1rem;
@@ -49,10 +66,5 @@ main {
 
 .blockcontent {
 	padding: 2rem 0;
-}
-
-.blockcontent >>> img {
-	max-width: 10rem;
-	height: auto;
 }
 </style>
