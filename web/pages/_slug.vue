@@ -26,6 +26,14 @@ const query = groq`
 export default {
 	mixins: [seo],
 
+	validate({ params, store, query }) {
+		// check if slug exists or preview is active
+		return (
+			store.state.pagesSlugs.includes(params.slug) ||
+			query.preview === 'true'
+		)
+	},
+
 	data() {
 		return {
 			page: {},

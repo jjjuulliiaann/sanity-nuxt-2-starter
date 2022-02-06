@@ -26,7 +26,7 @@ export default {
 	mixins: [seo],
 
 	validate({ params, store, query }) {
-		// check info slugs
+		// check if slug exists or preview is active
 		return (
 			store.state.projectsSlugs.includes(params.slug) ||
 			query.preview === 'true'

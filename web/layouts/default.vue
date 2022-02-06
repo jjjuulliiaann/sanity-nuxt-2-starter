@@ -18,9 +18,9 @@ export default {
 	head() {
 		return {
 			titleTemplate: (title) =>
-				title === '' || title === 'sanity-nuxt-template'
+				title === '' || title === '…'
 					? this.siteOptions.name
-					: `${this.siteOptions.name} – ${title}`,
+					: `${title} – ${this.siteOptions.name}`,
 			meta: [
 				{
 					hid: 'og:title',
