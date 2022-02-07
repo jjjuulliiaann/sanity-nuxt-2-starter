@@ -8,6 +8,9 @@ export const state = () => ({
 		height: 0,
 		isMobile: false,
 	},
+	cookies: {
+		isAccepted: true,
+	},
 })
 
 export const getters = {}
@@ -33,6 +36,9 @@ export const mutations = {
 	},
 	setIsMobile(state, isMobile) {
 		state.window.isMobile = isMobile
+	},
+	setCookiesAccepted(state, isAccepted) {
+		state.cookies.isAccepted = isAccepted
 	},
 }
 
