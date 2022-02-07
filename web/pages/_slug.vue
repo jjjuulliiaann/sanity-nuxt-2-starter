@@ -2,9 +2,9 @@
 	<main class="textpage">
 		<h1>{{ page.title }}</h1>
 
-		<div class="blockcontent text-01">
+		<section class="blockcontent text-01">
 			<ElementsTextBlock :blocks="page.content" />
-		</div>
+		</section>
 	</main>
 </template>
 

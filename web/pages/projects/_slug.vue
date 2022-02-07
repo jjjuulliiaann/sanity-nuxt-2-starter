@@ -1,10 +1,27 @@
 <template>
 	<main class="project">
-		<h1>{{ page.title }}</h1>
+		<article>
+			<h1>{{ page.title }}</h1>
 
-		<div v-if="page.content" class="blockcontent text-01">
-			<ElementsTextBlock :blocks="page.content" />
-		</div>
+			<section
+				v-if="page.content"
+				class="project__text blockcontent text-01"
+			>
+				<ElementsTextBlock :blocks="page.content" />
+			</section>
+
+			<section class="project__images">
+				<ul v-if="page.images">
+					<li v-for="image in page.images" :key="image._key">
+						<ElementsMediaSanityImage
+							v-if="image && image.asset"
+							:image="image"
+							:alt="image.alt"
+						/>
+					</li>
+				</ul>
+			</section>
+		</article>
 	</main>
 </template>
 
@@ -18,6 +35,10 @@ const query = groq`
 		...,
 		content[] {
 			${contentBlockQuery}
+		},
+		images[]{
+			...,
+			asset->
 		},
 	}
 `
@@ -61,7 +82,23 @@ export default {
 	padding: 1rem;
 }
 
-.blockcontent {
+.project__text {
 	padding: 2rem 0;
+}
+
+.project__images {
+	position: relative;
+	max-width: 60rem;
+	padding: 4rem 0;
+}
+
+.project__images li {
+	line-height: 0;
+	margin-bottom: 2rem;
+}
+
+.project__images >>> img {
+	width: 100%;
+	height: auto;
 }
 </style>
