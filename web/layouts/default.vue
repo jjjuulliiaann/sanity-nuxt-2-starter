@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<HeaderPreviewBanner v-if="$nuxt.isPreview" />
+		<!-- <HeaderPreviewBanner v-if="$nuxt.isPreview" /> -->
 		<Header />
 		<Nuxt />
 		<Footer />

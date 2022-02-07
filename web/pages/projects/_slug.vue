@@ -31,7 +31,7 @@ import { contentBlockQuery } from '~/plugins/sanity'
 import seo from '~/mixins/seo.js'
 
 const query = groq`
-	*[_type == 'project' && slug.current == $slug] | order(date desc, _updatedAt desc) [0]{
+	*[_type == 'project' && slug.current == $slug] | order(_updatedAt desc) [0]{
 		...,
 		content[] {
 			${contentBlockQuery}
@@ -48,6 +48,8 @@ export default {
 
 	validate({ params, store, query }) {
 		// check if slug exists or preview is active
+		console.log('validate!')
+		console.log(query.preview)
 		return (
 			store.state.projectsSlugs.includes(params.slug) ||
 			query.preview === 'true'
@@ -69,6 +71,11 @@ export default {
 		} catch (error) {
 			console.error(error)
 		}
+	},
+
+	mounted() {
+		console.log('Mounted!')
+		console.log(this.query.preview)
 	},
 }
 </script>

@@ -14,7 +14,7 @@ import { contentBlockQuery, seoQuery } from '~/plugins/sanity'
 import seo from '~/mixins/seo.js'
 
 const query = groq`
-	*[_type == 'templateText' && slug.current == $slug] | order(date desc, _updatedAt desc) [0]{
+	*[_type == 'templateText' && slug.current == $slug] | order(_updatedAt desc) [0]{
 		...,
 		content[] {
 			${contentBlockQuery}

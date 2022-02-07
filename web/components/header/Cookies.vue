@@ -63,10 +63,6 @@ export default {
 		justify-content: space-between;
 		align-items: center;
 	}
-
-	@media (min-width: 1600px) {
-		justify-content: flex-start;
-	}
 }
 
 .cookienote__content >>> p {
