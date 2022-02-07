@@ -1,11 +1,9 @@
 <template>
 	<header class="header">
-		<h1>
-			<n-link to="/"
-				>{{ siteOptions ? siteOptions.name : 'Untitled' }}
-				{{ siteOptions.headerTitle }}</n-link
-			>
-		</h1>
+		<n-link to="/"
+			>{{ siteOptions ? siteOptions.name : 'Untitled' }}
+			{{ siteOptions.headerTitle }}</n-link
+		>
 		<HeaderNavigation />
 	</header>
 </template>
@@ -21,12 +19,12 @@ export default {
 </script>
 
 <style scoped>
-@import '~/styles/variables.css';
+@import '~/styles/variables';
 
 header {
 	justify-content: space-between;
 	padding: 1rem;
-	border-bottom: 1px solid var(--clr-light);
+	border-bottom: 1px solid rgb(var(--clr-black) / 0.1);
 
 	@media (--width-tablet-01) {
 		display: flex;

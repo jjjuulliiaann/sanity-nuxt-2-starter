@@ -15,9 +15,9 @@
 @custom-media --height-03 (max-height: 900px);
 
 :root {
-	--clr-black: rgb(0, 0, 0);
-	--clr-white: rgb(255, 255, 255);
-	--clr-light: rgb(219, 219, 219);
-	--header-mobile: 3.8rem;
-	--header-tablet: 4.6rem;
+	--clr-black: 0 0 0;
+	--clr-white: 255 255 255;
+	--clr-accent: 235 82 82;
+	--header-height-01: 4rem;
+	--header-height-02: 6rem;
 }

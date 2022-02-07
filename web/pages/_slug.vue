@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="textpage">
 		<h1>{{ page.title }}</h1>
 
 		<div class="blockcontent text-01">
@@ -54,9 +54,9 @@ export default {
 </script>
 
 <style scoped>
-@import '~/styles/variables.css';
+@import '~/styles/variables';
 
-main {
+.textpage {
 	position: relative;
 	min-height: 90vh;
 	padding: 1rem;

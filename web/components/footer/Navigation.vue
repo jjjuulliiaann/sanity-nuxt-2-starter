@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-@import '~/styles/variables.css';
+@import '~/styles/variables';
 
 .footer-navigation {
 	display: flex;

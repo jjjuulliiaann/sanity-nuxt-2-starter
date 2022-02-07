@@ -156,7 +156,7 @@ body {
 	line-height: var(--line-01);
 	letter-spacing: var(--letter-01);
 	font-feature-settings: 'ss04';
-	color: var(--clr-white);
+	color: rgb(var(--clr-white));
 }
 
 .text--italic,

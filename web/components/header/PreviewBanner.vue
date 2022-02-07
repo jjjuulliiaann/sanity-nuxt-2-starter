@@ -1,8 +1,8 @@
 <template>
 	<aside class="preview-banner">
-		<button class="text-00" @click="$nuxt.refresh"
-			><span>Preview: Click to refresh text</span></button
-		>
+		<button class="text-00" @click="$nuxt.refresh">
+			<span>Preview: Click to refresh text</span>
+		</button>
 	</aside>
 </template>
 
@@ -11,7 +11,7 @@ export default {}
 </script>
 
 <style scoped>
-@import '~/styles/variables.css';
+@import '~/styles/variables';
 
 .preview-banner {
 	position: fixed;
@@ -19,8 +19,8 @@ export default {}
 	left: 0;
 	width: 100%;
 	height: 3.75rem;
-	background: var(--clr-white);
-	color: var(--clr-black);
+	background: rgb(var(--clr-white));
+	color: rgb(var(--clr-black));
 	z-index: 999;
 	border-bottom: 1px solid rgba(119, 119, 119, 0.25);
 }

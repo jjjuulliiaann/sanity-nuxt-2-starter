@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-@import '~/styles/variables.css';
+@import '~/styles/variables';
 
 .projects {
 	position: relative;
@@ -78,8 +78,7 @@ export default {
 
 .projects__item {
 	position: relative;
-
-	border: 1px solid var(--clr-light);
+	border: 1px solid rgb(var(--clr-black) / 0.1);
 	border-radius: 1rem;
 }
 

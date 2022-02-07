@@ -1,4 +1,4 @@
-@import '~/styles/variables.css';
+@import '~/styles/variables';
 @import '~/styles/typography.css';
 
 ::selection {
@@ -16,20 +16,21 @@ html {
 
 body {
 	-webkit-tap-highlight-color: transparent;
-	background: var(--clr-white);
-	color: var(--clr-black);
+	background: rgb(var(--clr-white));
+	color: rgb(var(--clr-black));
 }
 
 /* layout */
-#__layout > div {
-	min-height: 100vh;
-}
 
-.main-article {
-	padding: 1rem;
+.container {
+	position: relative;
 }
 
 /* text */
+
+h1 {
+	font-weight: 700;
+}
 
 a {
 	color: black;
@@ -38,4 +39,58 @@ a {
 
 .blockcontent a {
 	text-decoration: underline;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.blockcontent a:hover {
+		color: rgb(var(--clr-accent));
+	}
+}
+
+.text--bold,
+.blockcontent strong {
+	font-variation-settings: var(--font-weight-bold);
+}
+
+.blockcontent p {
+	margin-bottom: 1rem;
+}
+
+.blockcontent p:last-child {
+	margin-bottom: 0;
+}
+
+.blockcontent ul,
+.blockcontent ol {
+	padding-left: 2rem;
+	margin-bottom: 1rem;
+
+	@media (--media-min-tablet) {
+		padding-left: 2rem;
+	}
+}
+
+.blockcontent ul {
+	list-style-type: disc;
+}
+
+.blockcontent ol {
+	list-style-type: decimal;
+}
+
+.blockcontent h2 {
+	font-weight: 700;
+	margin: 4rem 0 1rem;
+}
+
+/* blockcontent pictures */
+
+.blockcontent figure {
+	margin-bottom: 1rem;
+}
+
+.blockcontent figure,
+.blockcontent img {
+	width: 100%;
+	height: auto;
 }
