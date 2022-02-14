@@ -11,7 +11,7 @@ export default function resolveProductionUrl(document) {
 
 	// review production url according to frontend route setup (check for trailing slash!)
 	if (document._type === "project") {
-		return `${baseUrl}/projects/${slug}${urlQuery}`;
+		return `${baseUrl}/projects/${slug}/${urlQuery}`;
 	}
-	return `${baseUrl}/${slug}${urlQuery}`;
+	return `${baseUrl}/${slug}/${urlQuery}`;
 }

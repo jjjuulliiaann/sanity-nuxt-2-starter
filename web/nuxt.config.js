@@ -62,13 +62,13 @@ export default {
 		],
 	},
 
-	router: {
-		trailingSlash: false,
+	/* router: {
+		trailingSlash: true,
 	},
 
 	sitemap: {
-		trailingSlash: false,
-	},
+		trailingSlash: true,
+	}, */
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [{ src: '~/styles/reset' }, { src: '~/styles/global' }],

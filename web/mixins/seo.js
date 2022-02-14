@@ -2,12 +2,14 @@ export default {
 	head() {
 		return this.page.seo
 			? {
-					title: this.page.title,
+					title: this.page.title ? this.page.title : '',
 					meta: [
 						{
 							hid: 'og:title',
 							name: 'og:title',
-							content: `${this.page.title} – ${this.$store.state.siteOptions.name}`,
+							content: `${
+								this.page.title ? this.page.title : ''
+							} – ${this.$store.state.siteOptions.name}`,
 						},
 						{
 							hid: 'description',
@@ -54,12 +56,14 @@ export default {
 					],
 			  }
 			: {
-					title: this.page.title,
+					title: this.page.title ? this.page.title : '',
 					meta: [
 						{
 							hid: 'og:title',
 							name: 'og:title',
-							content: `${this.page.title} – ${this.$store.state.siteOptions.name}`,
+							content: `${
+								this.page.title ? this.page.title : ''
+							} – ${this.$store.state.siteOptions.name}`,
 						},
 					],
 			  }
