@@ -32,6 +32,7 @@ export default {
 			console.log('🎈 async fetch: called')
 			const result = await this.$sanity.fetch(query)
 			this.page = result
+			console.log(result)
 		} catch (error) {
 			console.error(error)
 		}

@@ -1,7 +1,7 @@
 <template>
 	<aside class="preview-banner">
 		<button class="text-00" @click="$nuxt.refresh">
-			<span>Preview: Click to refresh page</span>
+			Preview: Click to refresh page
 		</button>
 	</aside>
 </template>
@@ -15,10 +15,14 @@
 	--_clr-lightgrey: rgba(86 89 92 / 0.4);
 	--_clr-blue: rgb(34 118 252);
 	position: sticky;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 4.3rem;
+	padding: 0 1.2rem;
 	background: rgb(var(--clr-white));
 	color: rgb(var(--clr-black));
 	z-index: 1000;
@@ -27,12 +31,7 @@
 
 .preview-banner button {
 	position: absolute;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	padding: 0 1.2rem;
+	padding: 0.1rem 0.7rem;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
 		'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
 		'Helvetica Neue', sans-serif;
@@ -41,17 +40,11 @@
 	text-align: left;
 	color: var(--_clr-grey);
 	border-radius: 3px;
-}
-
-.preview-banner span {
-	display: block;
-	border-radius: 3px;
-	padding: 0.1rem 0.7rem;
 	border: 1px solid var(--_clr-lightgrey);
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.preview-banner button:hover span {
+	.preview-banner button:hover {
 		background: var(--_clr-blue);
 		color: rgb(var(--clr-white));
 		border-color: var(--_clr-blue);
