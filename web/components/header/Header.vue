@@ -1,5 +1,6 @@
 <template>
 	<header class="header">
+		<HeaderPreviewBanner v-if="$nuxt.isPreview" />
 		<HeaderCookies />
 		<div class="header__bar">
 			<n-link to="/"
