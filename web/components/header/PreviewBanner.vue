@@ -1,8 +1,16 @@
 <template>
 	<aside class="preview-banner">
-		<button class="text-00" @click="$nuxt.refresh">
-			Preview: Click to refresh page
+		<button class="preview-banner__button" @click="$nuxt.refresh">
+			Refresh preview page
 		</button>
+		<a
+			class="preview-banner__button"
+			:href="$nuxt.$route.fullPath"
+			target="_blank"
+			rel="noopener"
+		>
+			Open preview in new tab
+		</a>
 	</aside>
 </template>
 
@@ -16,8 +24,7 @@
 	--_clr-blue: rgb(34 118 252);
 	position: sticky;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	align-items: center;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -29,9 +36,9 @@
 	border-bottom: 1px solid var(--_clr-lightgrey);
 }
 
-.preview-banner button {
-	position: absolute;
+.preview-banner .preview-banner__button {
 	padding: 0.1rem 0.7rem;
+	margin-right: 1rem;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
 		'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
 		'Helvetica Neue', sans-serif;
@@ -44,7 +51,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-	.preview-banner button:hover {
+	.preview-banner .preview-banner__button:hover {
 		background: var(--_clr-blue);
 		color: rgb(var(--clr-white));
 		border-color: var(--_clr-blue);
