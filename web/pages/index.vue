@@ -1,10 +1,10 @@
 <template>
 	<main class="home">
 		<h1>{{ page.title }}</h1>
-
-		<div class="blockcontent text-01">
+		<div class="test">Preview: {{ $nuxt.isPreview }}</div>
+		<!-- <div class="blockcontent text-01">
 			<ElementsTextBlock :blocks="page.content" />
-		</div>
+		</div> -->
 	</main>
 </template>
 
@@ -29,6 +29,7 @@ export default {
 
 	async fetch() {
 		try {
+			console.log('🎈 async fetch: called')
 			const result = await this.$sanity.fetch(query)
 			this.page = result
 		} catch (error) {

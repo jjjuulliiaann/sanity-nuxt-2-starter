@@ -1,6 +1,6 @@
 <template>
 	<main class="project">
-		<article>
+		<!-- <article>
 			<h1 v-if="page.title">{{ page.title }}</h1>
 
 			<section
@@ -21,7 +21,7 @@
 					</li>
 				</ul>
 			</section>
-		</article>
+		</article> -->
 	</main>
 </template>
 
@@ -60,7 +60,7 @@ export default {
 		}
 	},
 
-	async fetch() {
+	/* async fetch() {
 		const params = this.$route.params
 
 		try {
@@ -69,7 +69,7 @@ export default {
 		} catch (error) {
 			console.error(error)
 		}
-	},
+	}, */
 
 	mounted() {
 		console.log('Mounted!')

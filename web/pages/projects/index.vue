@@ -1,6 +1,6 @@
 <template>
 	<main class="projects">
-		<h1>{{ page.title }}</h1>
+		<!-- <h1>{{ page.title }}</h1>
 
 		<section class="projects__grid">
 			<ul>
@@ -18,15 +18,15 @@
 					</ElementsTextLink>
 				</li>
 			</ul>
-		</section>
+		</section> -->
 	</main>
 </template>
 
 <script>
-import groq from 'groq'
-import seo from '~/mixins/seo.js'
+/* import groq from 'groq' */
+/* import seo from '~/mixins/seo.js' */
 
-const query = groq`{
+/* const query = groq`{
 	"page": *[_id == "templateProjects"] | order(_updatedAt desc) [0] {
 		...
 	},
@@ -34,10 +34,10 @@ const query = groq`{
 	| order(_updatedAt desc){
 		...
 	}
-}`
+}` */
 
 export default {
-	mixins: [seo],
+	/* mixins: [seo], */
 
 	data() {
 		return {
@@ -46,7 +46,7 @@ export default {
 		}
 	},
 
-	async fetch() {
+	/* async fetch() {
 		try {
 			const result = await this.$sanity.fetch(query)
 			this.page = result.page
@@ -54,7 +54,7 @@ export default {
 		} catch (error) {
 			console.error(error)
 		}
-	},
+	}, */
 }
 </script>
 
