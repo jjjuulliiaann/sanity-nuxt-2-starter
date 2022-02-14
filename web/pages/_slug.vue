@@ -1,17 +1,17 @@
 <template>
 	<main class="textpage">
-		<!-- <h1>{{ page.title }}</h1>
+		<h1>{{ page.title }}</h1>
 
 		<section class="blockcontent text-01">
 			<ElementsTextBlock :blocks="page.content" />
-		</section> -->
+		</section>
 	</main>
 </template>
 
 <script>
 import groq from 'groq'
 import { contentBlockQuery, seoQuery } from '~/plugins/sanity'
-/* import seo from '~/mixins/seo.js' */
+import seo from '~/mixins/seo.js'
 
 const query = groq`
 	*[_type == 'templateText' && slug.current == $slug] | order(_updatedAt desc) [0]{
@@ -24,7 +24,7 @@ const query = groq`
 `
 
 export default {
-	/* mixins: [seo], */
+	mixins: [seo],
 
 	validate({ params, store, query }) {
 		// check if slug exists or preview is active
@@ -40,7 +40,7 @@ export default {
 		}
 	},
 
-	/* async fetch() {
+	async fetch() {
 		const params = this.$route.params
 
 		try {
@@ -49,7 +49,7 @@ export default {
 		} catch (error) {
 			console.error(error)
 		}
-	}, */
+	},
 }
 </script>
 

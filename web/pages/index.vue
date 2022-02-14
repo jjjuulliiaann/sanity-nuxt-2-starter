@@ -1,10 +1,9 @@
 <template>
 	<main class="home">
 		<h1>{{ page.title }}</h1>
-		<div class="test">Preview: {{ $nuxt.isPreview }}</div>
-		<!-- <div class="blockcontent text-01">
+		<div class="blockcontent text-01">
 			<ElementsTextBlock :blocks="page.content" />
-		</div> -->
+		</div>
 	</main>
 </template>
 
@@ -13,7 +12,7 @@ import groq from 'groq'
 import { contentBlockQuery } from '~/plugins/sanity'
 
 const query = groq`*[(
-	_id == "templateHome")] | order(_updatedAt desc)[0]{
+	_type == "templateHome")] | order(_updatedAt desc)[0]{
 		...,
 		content[] {
 			${contentBlockQuery}
@@ -29,10 +28,8 @@ export default {
 
 	async fetch() {
 		try {
-			console.log('🎈 async fetch: called')
 			const result = await this.$sanity.fetch(query)
 			this.page = result
-			console.log(result)
 		} catch (error) {
 			console.error(error)
 		}

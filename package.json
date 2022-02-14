@@ -5,6 +5,7 @@
 	"scripts": {
 		"build": "lerna run build --parallel",
 		"dev": "lerna run dev --parallel",
+		"start": "lerna run start --parallel",
 		"format": "lerna run format",
 		"build-studio": "lerna bootstrap && (cd studio && npm run build)",
 		"build-web": "lerna bootstrap && (cd web && npm run generate)",
