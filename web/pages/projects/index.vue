@@ -27,7 +27,7 @@ import groq from 'groq'
 import seo from '~/mixins/seo.js'
 
 const query = groq`{
-	"page": *[_id == "templateProjects"][0] {
+	"page": *[_id == "templateProjects"] | order(_updatedAt desc) [0] {
 		...
 	},
 	"projects": *[(_type == "project") && !(_id in path("drafts.**"))]

@@ -48,8 +48,6 @@ export default {
 
 	validate({ params, store, query }) {
 		// check if slug exists or preview is active
-		console.log('validate!')
-		console.log(query.preview)
 		return (
 			store.state.projectsSlugs.includes(params.slug) ||
 			query.preview === 'true'
@@ -75,7 +73,7 @@ export default {
 
 	mounted() {
 		console.log('Mounted!')
-		console.log(this.query.preview)
+		console.log(this.page)
 	},
 }
 </script>

@@ -13,7 +13,7 @@ import groq from 'groq'
 import { contentBlockQuery } from '~/plugins/sanity'
 
 const query = groq`*[(
-	_id == "templateHome")][0]{
+	_id == "templateHome")] | order(_updatedAt desc)[0]{
 		...,
 		content[] {
 			${contentBlockQuery}
