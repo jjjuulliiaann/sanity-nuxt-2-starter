@@ -16,12 +16,26 @@ export const linkQuery = `
 
 export const contentBlockQuery = `
 	...,
-	image {..., asset->},
+	_type == "blockImage" => {
+		image {..., asset->}
+	},
+	_type == "blockLoop" => {
+		video {muxVideo{asset->}}
+	},
 	markDefs[]{
 		...,
 		_type == "download" => {"url": asset->url},
 		${linkQuery}
 	}
+`
+
+export const imageLoopArrayQuery = `
+	_type == "picture" => {
+		..., asset->
+	},
+	_type == "video" => {
+		..., muxVideo{asset->}
+	},
 `
 
 export const seoQuery = `

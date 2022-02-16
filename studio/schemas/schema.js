@@ -14,9 +14,11 @@ import contentText from "./objects/content/contentText";
 import contentParagraph from "./objects/content/contentParagraph";
 import contentFull from "./objects/content/contentFull";
 import blockImage from "./objects/content/blocks/blockImage";
+import blockLoop from "./objects/content/blocks/blockLoop";
 import link from "./objects/link";
 import picture from "./objects/picture";
 import seo from "./objects/seo";
+import video from "./objects/video";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -37,8 +39,10 @@ export default createSchema({
 		contentParagraph,
 		contentFull,
 		blockImage,
+		blockLoop,
 		link,
 		picture,
 		seo,
+		video,
 	]),
 });

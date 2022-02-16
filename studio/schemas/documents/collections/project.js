@@ -41,6 +41,10 @@ export default {
 					title: "Image",
 					type: "picture",
 				},
+				{
+					title: "Video Loop",
+					type: "video",
+				},
 			],
 		},
 		{

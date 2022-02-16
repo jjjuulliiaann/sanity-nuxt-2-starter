@@ -20,5 +20,6 @@ export default {
 			},
 		},
 		{ type: "blockImage" },
+		{ type: "blockLoop" },
 	],
 };

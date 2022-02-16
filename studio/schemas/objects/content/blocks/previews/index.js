@@ -1,3 +1,3 @@
 export * from "./PreviewSingle";
 export * from "./PreviewBlockImage";
-export * from "./PreviewBlockLogos";
+export * from "./PreviewBlockLoop";

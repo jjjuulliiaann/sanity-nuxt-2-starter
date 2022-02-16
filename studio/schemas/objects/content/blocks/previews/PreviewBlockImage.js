@@ -10,22 +10,23 @@ function urlFor(source) {
 
 export const PreviewBlockImage = ({ value }) => {
 	if (!value) return null;
-	const { _type, image, title } = value;
+	const { _type, image } = value;
 
-	const url = image ? urlFor(image).width(1000).url() : undefined;
-	const isSmall = _type === "blockImageSmall";
+	const url = image ? urlFor(image).width(600).url() : undefined;
 
-	return (
-		<div>
-			<div style={{ padding: isSmall ? "1rem" : "1rem" }}>
-				<img
-					style={{
-						display: "block",
-						width: isSmall ? "10rem" : "25%",
-					}}
-					src={url}
-				/>
-			</div>
+	return image ? (
+		<div style={{ padding: "0.5rem" }}>
+			<img
+				style={{
+					display: "block",
+					width: "auto",
+					height: "auto",
+					maxHeight: "10rem",
+				}}
+				src={url}
+			/>
 		</div>
+	) : (
+		<div style={{ padding: "0.5rem" }}>Empty Image</div>
 	);
 };

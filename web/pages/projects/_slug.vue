@@ -12,11 +12,19 @@
 
 			<section class="project__images">
 				<ul v-if="page.images">
-					<li v-for="image in page.images" :key="image._key">
+					<li v-for="mediaEl in page.images" :key="mediaEl._key">
 						<ElementsMediaBaseImage
-							v-if="image && image.asset"
-							:image="image"
-							:alt="image.alt"
+							v-if="mediaEl.asset"
+							:image="mediaEl"
+							:alt="mediaEl.alt"
+						/>
+						<ElementsMediaBaseLoop
+							v-if="
+								mediaEl._type === 'video' &&
+								mediaEl.muxVideo &&
+								mediaEl.muxVideo.asset
+							"
+							:video="mediaEl"
 						/>
 					</li>
 				</ul>
@@ -27,7 +35,7 @@
 
 <script>
 import groq from 'groq'
-import { contentBlockQuery } from '~/plugins/sanity'
+import { contentBlockQuery, imageLoopArrayQuery } from '~/plugins/sanity'
 import seo from '~/mixins/seo.js'
 
 const query = groq`
@@ -37,8 +45,7 @@ const query = groq`
 			${contentBlockQuery}
 		},
 		images[]{
-			...,
-			asset->
+			${imageLoopArrayQuery}
 		},
 	}
 `
