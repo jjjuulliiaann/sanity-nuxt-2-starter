@@ -4,7 +4,7 @@
 
 <script>
 import PortableText from 'sanity-blocks-vue-component'
-import SanityFigure from '~/components/elements/media/SanityFigure'
+import BaseFigure from '~/components/elements/media/BaseFigure'
 import BlockText from '~/components/elements/blocks/BlockText'
 import Link from '~/components/elements/text/Link'
 import FileLink from '~/components/elements/text/FileLink'
@@ -26,8 +26,8 @@ export default {
 		return {
 			serializers: {
 				types: {
-					image: SanityFigure,
-					blockImage: SanityFigure,
+					image: BaseFigure,
+					blockImage: BaseFigure,
 					block: BlockText,
 				},
 				marks: {

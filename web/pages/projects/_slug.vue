@@ -13,7 +13,7 @@
 			<section class="project__images">
 				<ul v-if="page.images">
 					<li v-for="image in page.images" :key="image._key">
-						<ElementsMediaSanityImage
+						<ElementsMediaBaseImage
 							v-if="image && image.asset"
 							:image="image"
 							:alt="image.alt"

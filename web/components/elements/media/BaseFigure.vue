@@ -1,6 +1,6 @@
 <template>
 	<figure :class="customClass">
-		<ElementsMediaSanityImage
+		<ElementsMediaBaseImage
 			v-if="image"
 			:image="image"
 			:svg-placeholder="svgPlaceholder"
