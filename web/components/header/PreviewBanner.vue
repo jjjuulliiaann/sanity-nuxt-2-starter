@@ -5,7 +5,7 @@
 		</button>
 		<a
 			class="preview-banner__button"
-			:href="$nuxt.$route.fullPath"
+			:href="`${$nuxt.$route.path}?preview=true`"
 			target="_blank"
 			rel="noopener"
 		>

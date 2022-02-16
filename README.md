@@ -3,22 +3,25 @@
 ## Build Setup
 
 ```bash
-# to start, install dependencies in root folder, as well as in the studio and web folders
+# to start, install dependencies in root folder, as well as in the /studio and /web folder
 $ npm install
 
 # serve sanity studio at localhost:3333
 # serve nuxt with hot reload at localhost:3000
+# (run command from root folder)
 $ npm run dev
 
-# build for production and launch server
+# build static versions of studio and frontend for production
+# (run command from root folder)
 $ npm run build
 $ npm run start
 
-# generate static project
-$ npm run generate
+# build only static frontend
+# (run command from root folder)
+$ npm run build-web
 ```
 
-## Netlify Deploy
+## Deploy
 
 In Netlify add two separate sites with "studio" / "web" as the base directories. The rest of the build settings is handled by the netlify.toml files.
 
@@ -26,7 +29,7 @@ In Netlify add two separate sites with "studio" / "web" as the base directories.
 
 For detailed explanation on how things work, check out the Sanity [resources](https://www.sanity.io/docs/overview-introduction).
 
-### Netlify Deploy Button
+### Netlify Deploy Plugin
 
 With the Netlify Deploy Plugin the studio user can trigger a static build from the Sanity dashboard. In Netlify you need to set up a Build hook in Settings > Build & deploy. Copy the build hook id and save it as a environment variable.
 
