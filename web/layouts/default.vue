@@ -34,24 +34,31 @@ export default {
 				{
 					hid: 'description',
 					name: 'description',
-					content: this.siteOptions.seo.metaDescription,
+					content: this.siteOptions.seo
+						? this.siteOptions.seo.metaDescription
+						: '',
 				},
 				{
 					hid: 'og:description',
 					name: 'og:description',
-					content: this.siteOptions.seo.metaDescription,
+					content: this.siteOptions.seo
+						? this.siteOptions.seo.metaDescription
+						: '',
 				},
 				{
 					hid: 'keywords',
 					name: 'keywords',
-					content: this.siteOptions.seo.metaKeywords
-						? this.siteOptions.seo.metaKeywords.join(',')
-						: '',
+					content:
+						this.siteOptions.seo &&
+						this.siteOptions.seo.metaKeywords
+							? this.siteOptions.seo.metaKeywords.join(',')
+							: '',
 				},
 				{
 					hid: 'og:image',
 					name: 'og:image',
 					content:
+						this.siteOptions.seo &&
 						this.siteOptions.seo.ogImage &&
 						this.siteOptions.seo.ogImage.asset
 							? this.siteOptions.seo.ogImage.asset.url

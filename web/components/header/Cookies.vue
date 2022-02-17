@@ -1,7 +1,10 @@
 <template>
 	<transition name="slide">
 		<section v-show="!$store.state.cookies.isAccepted" class="cookienote">
-			<div class="cookienote__content text-01 blockcontent">
+			<div
+				v-if="$store.state.siteOptions.cookieText"
+				class="cookienote__content text-01 blockcontent"
+			>
 				<ElementsTextBlock
 					:blocks="$store.state.siteOptions.cookieText"
 				/>

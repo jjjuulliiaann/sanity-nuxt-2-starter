@@ -1,6 +1,6 @@
 <template>
 	<nav>
-		<ul class="navigation">
+		<ul v-if="siteNavigation" class="navigation">
 			<li
 				v-for="link in siteNavigation.navMain"
 				:key="link.id"
