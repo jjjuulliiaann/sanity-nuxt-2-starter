@@ -4,22 +4,13 @@
 
 ### General Setup
 
-1. Clone the Repository and install from the root directory:
-
-```
-npm install
-```
+1. Clone the Repository and install from the root directory with `npm install`
 
 2. Edit the project title in `package.json`
 
 ### Sanity Studio Setup
 
-1. Switch to the studio folder with `cd studio` and setup Sanity:
-
-```
-npm install
-sanity init
-```
+1. Switch to the studio folder with `cd studio`, install the dependencies (`npm install`) and initialize Sanity (`sanity init`)
 
 2. Edit the project title in `package.json` and `sanity.json`
 
@@ -27,24 +18,11 @@ sanity init
 
 ### Nuxt Frontend Setup
 
-1. Switch to the web folder with `cd ../web` and install the dependencies:
+1. Switch to the web folder with `cd ../web` and install the dependencies with `npm install`
 
-```
-npm install
-```
-
-2. Copy the `.env.example`, rename it to `.env` and enter the information
+2. Copy the `.env.example`, rename it to `.env` and config the variables.
 
 3. Go to [sanity.io/manage](https://www.sanity.io/manage) and add `http://localhost:3000` as a CORS origin.
-
-### Environment variables
-
-Add a .env.development file with the necessary environment variables for development. Have a look at .env.development.example for reference.
-Add the same variables on Netlify or your hosting platform. You get the Netlify API ID from Settings > General.
-
-## Web: Nuxt 2 Frontend
-
-For detailed explanation on how things work, check out the Nuxt [documentation](https://nuxtjs.org).
 
 ## Development
 
@@ -67,14 +45,28 @@ $ npm run build-web
 
 For detailed explanation on how things work, check out the Sanity [resources](https://www.sanity.io/docs/overview-introduction).
 
-## Deploy
+To avoid errors in the frontend, publish your Options page in Sanity.
 
-In Netlify add two separate sites with "studio" / "web" as the base directories. The rest of the build settings is handled by the netlify.toml files.
+### Web: Nuxt 2 Frontend
+
+For detailed explanation on how things work, check out the Nuxt [documentation](https://nuxtjs.org).
+
+## Deploying to Netlify
+
+In Netlify add two separate sites with "studio" / "web" as the base directories. The rest of the build settings is handled by the `netlify.toml` files.
 
 ### Environment variables
 
-Add the same variables on Netlify/your hosting platform as in the `.env` in your local web folder.
+Add the same variables on Netlify as in the `.env` in your local web folder and in the `.env.development` in your local studio folder.
 
 ### Netlify Deploy Plugin
 
-With the Netlify Deploy Plugin the studio user can trigger a static build from the Sanity dashboard. In Netlify you need to set up a Build hook in Settings > Build & deploy. Copy the build hook id and save it as a environment variable in your studios `.env.development`
+With the Netlify Deploy Plugin the studio user can trigger a static build directly from the Sanity dashboard. To set it up:
+
+1. In Netlify in your frontend project you need to set up a build hook in Settings > Build & deploy.
+
+2. Copy the **build hook id** and save it as a environment variable in your studios `.env.development` as well as in the netlify studio project.
+
+3. From Netlifys Frontend project in General > Site details copy the **API ID** and save it in your studios `.env.development` as well as in the netlify studio project.
+
+4. After a Rebuild the deploy plugin in the studios dashboard can be used to trigger static builds.
