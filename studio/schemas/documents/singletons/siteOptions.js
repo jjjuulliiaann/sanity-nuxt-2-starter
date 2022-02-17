@@ -1,10 +1,10 @@
-import { BiSliderAlt } from "react-icons/bi/";
+import { BiCog } from "react-icons/bi/";
 
 export default {
 	title: "Options",
 	name: "siteOptions",
 	type: "document",
-	icon: BiSliderAlt,
+	icon: BiCog,
 	__experimental_actions: ["update", "create", "delete", "publish"],
 	fieldsets: [
 		{
