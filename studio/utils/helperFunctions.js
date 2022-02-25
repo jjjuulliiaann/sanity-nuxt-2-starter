@@ -9,7 +9,7 @@ export const slugify = (input) => {
 		.replace(/[\u0300-\u036f]/g, "")
 		.toLowerCase()
 		.trim()
-		.replace(/\s+/g, "-")
+		.replace(/[\s+\+]/g, "-")
 		.replace(/[^\w-]+/g, "")
 		.replace(/--+/g, "-")
 		.slice(0, 200);

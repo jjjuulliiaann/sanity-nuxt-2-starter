@@ -1,4 +1,4 @@
-import { BiFile, BiLink, BiHome } from "react-icons/bi/";
+import { BiFile, BiLink, BiHome, BiBookAlt } from "react-icons/bi/";
 
 export default {
 	title: "Link",
@@ -72,6 +72,7 @@ export default {
 			internalSlug: "internalLink.slug.current",
 			externalTitle: "title",
 			linkType: "linkType",
+			linkTemplate: "internalLink._type",
 		},
 		prepare({
 			url,
@@ -80,7 +81,14 @@ export default {
 			internalSlug,
 			externalTitle,
 			linkType,
+			linkTemplate,
 		}) {
+			const previewSymbol = {
+				templateHome: BiHome,
+				templateText: BiFile,
+				templateProjects: BiBookAlt,
+				project: BiBookAlt,
+			};
 			return {
 				title:
 					linkType === "external"
@@ -96,8 +104,8 @@ export default {
 				media:
 					linkType === "external"
 						? BiLink
-						: internalLink && !internalSlug
-						? BiHome
+						: previewSymbol[linkTemplate]
+						? previewSymbol[linkTemplate]
 						: BiFile,
 			};
 		},
