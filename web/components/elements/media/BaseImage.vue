@@ -4,6 +4,7 @@
 		:data-src="imageSrc"
 		:data-srcset="imageSrcSet"
 		:data-sizes="dataSizes"
+		:data-parent-fit="parentFit"
 		:alt="altText"
 		:width="cropWidth"
 		:height="cropHeight"
@@ -32,6 +33,10 @@ export default {
 		dataSizes: {
 			type: String,
 			default: () => 'auto',
+		},
+		parentFit: {
+			type: String,
+			default: () => '',
 		},
 		alt: {
 			type: String,

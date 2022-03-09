@@ -11,6 +11,7 @@
 			:preload="preload"
 			:use-object-position="useObjectPosition"
 			:data-sizes="dataSizes"
+			:data-parent-fit="parentFit"
 			@lazyloaded="$emit('lazyloaded')"
 		/>
 		<figcaption v-if="figcaption">{{ figcaption }}</figcaption>
@@ -35,6 +36,10 @@ export default {
 		dataSizes: {
 			type: String,
 			default: () => 'auto',
+		},
+		parentFit: {
+			type: String,
+			default: () => '',
 		},
 		alt: {
 			type: String,
