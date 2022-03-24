@@ -5,7 +5,7 @@
 		<div class="header__bar">
 			<n-link to="/"
 				>{{ siteOptions ? siteOptions.name : 'Untitled' }}
-				{{ siteOptions.headerTitle }}</n-link
+				{{ siteOptions ? siteOptions.headerTitle : 'Untitled' }}</n-link
 			>
 			<HeaderNavigation />
 		</div>

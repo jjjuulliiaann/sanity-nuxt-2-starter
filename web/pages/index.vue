@@ -1,8 +1,8 @@
 <template>
 	<main class="home">
-		<h1>{{ page.title }}</h1>
+		<h1>{{ page ? page.title : 'Untitled' }}</h1>h1>{{ page.title }}</h1>
 		<div class="blockcontent text-01">
-			<ElementsTextBlock :blocks="page.content" />
+			<ElementsTextBlock v-if="page.content" :blocks="page.content" />
 		</div>
 	</main>
 </template>

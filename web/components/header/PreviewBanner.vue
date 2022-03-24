@@ -28,12 +28,12 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 4.3rem;
+	height: var(--preview-banner-height);
 	padding: 0 1.2rem;
 	background: rgb(var(--clr-white));
 	color: rgb(var(--clr-black));
-	z-index: 1000;
 	border-bottom: 1px solid var(--_clr-lightgrey);
+	z-index: 1000;
 }
 
 .preview-banner .preview-banner__button {
@@ -44,10 +44,12 @@
 		'Helvetica Neue', sans-serif;
 	font-weight: 500;
 	font-size: 13px;
+	line-height: 1;
 	text-align: left;
 	color: var(--_clr-grey);
 	border-radius: 3px;
 	border: 1px solid var(--_clr-lightgrey);
+	transition: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
