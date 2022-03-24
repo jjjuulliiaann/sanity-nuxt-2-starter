@@ -51,7 +51,7 @@ export default {
 }
 
 .blockcontent >>> img {
-	max-width: 10rem;
+	max-width: 20rem;
 	height: auto;
 }
 </style>

@@ -51,6 +51,10 @@ export default {
 				href: '/favicons/favicon-16x16.png',
 			},
 			{
+				rel: 'manifest',
+				href: '/favicons/site.webmanifest',
+			},
+			{
 				rel: 'mask-icon',
 				href: '/favicons/safari-pinned-tab.svg',
 				color: '#000000',

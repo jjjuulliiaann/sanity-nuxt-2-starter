@@ -237,3 +237,72 @@ em {
 		line-height: calc(var(--lhMax03) * 1px);
 	}
 }
+
+/* text styles */
+
+h1 {
+	font-weight: 700;
+}
+
+a {
+	color: rgb(var(--clr-black));
+	text-decoration: none;
+}
+
+.blockcontent a {
+	text-decoration: underline;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.blockcontent a:hover {
+		color: rgb(var(--clr-accent));
+	}
+}
+
+.text--bold,
+.blockcontent strong {
+	font-variation-settings: var(--font-weight-bold);
+}
+
+.blockcontent p {
+	margin-bottom: 1rem;
+}
+
+.blockcontent p:last-child {
+	margin-bottom: 0;
+}
+
+.blockcontent ul,
+.blockcontent ol {
+	padding-left: 2rem;
+	margin-bottom: 1rem;
+
+	@media (--media-min-tablet) {
+		padding-left: 2rem;
+	}
+}
+
+.blockcontent ul {
+	list-style-type: disc;
+}
+
+.blockcontent ol {
+	list-style-type: decimal;
+}
+
+.blockcontent h2 {
+	font-weight: 700;
+	margin: 4rem 0 1rem;
+}
+
+/* blockcontent pictures */
+
+.blockcontent figure {
+	margin-bottom: 1rem;
+}
+
+.blockcontent figure,
+.blockcontent img {
+	width: 100%;
+	height: auto;
+}
