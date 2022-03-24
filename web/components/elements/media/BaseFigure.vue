@@ -11,7 +11,7 @@
 			:preload="preload"
 			:use-object-position="useObjectPosition"
 			:data-sizes="dataSizes"
-			:data-parent-fit="parentFit"
+			:data-parent-fit="dataParentFit"
 			@lazyloaded="$emit('lazyloaded')"
 		/>
 		<figcaption v-if="figcaption">{{ figcaption }}</figcaption>
@@ -27,7 +27,7 @@ export default {
 		},
 		svgPlaceholder: {
 			type: Boolean,
-			default: () => false,
+			default: () => true,
 		},
 		lqipPlaceholder: {
 			type: Boolean,
@@ -37,7 +37,7 @@ export default {
 			type: String,
 			default: () => 'auto',
 		},
-		parentFit: {
+		dataParentFit: {
 			type: String,
 			default: () => '',
 		},

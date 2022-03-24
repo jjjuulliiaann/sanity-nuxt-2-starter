@@ -91,6 +91,7 @@ export default {
 
 .video-loop {
 	position: relative;
+	max-width: 100%;
 }
 
 .video-loop > video {

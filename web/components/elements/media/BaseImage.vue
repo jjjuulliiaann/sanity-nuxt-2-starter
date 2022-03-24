@@ -4,7 +4,7 @@
 		:data-src="imageSrc"
 		:data-srcset="imageSrcSet"
 		:data-sizes="dataSizes"
-		:data-parent-fit="parentFit"
+		:data-parent-fit="dataParentFit"
 		:alt="altText"
 		:width="cropWidth"
 		:height="cropHeight"
@@ -24,7 +24,7 @@ export default {
 		},
 		svgPlaceholder: {
 			type: Boolean,
-			default: () => false,
+			default: () => true,
 		},
 		lqipPlaceholder: {
 			type: Boolean,
@@ -34,7 +34,7 @@ export default {
 			type: String,
 			default: () => 'auto',
 		},
-		parentFit: {
+		dataParentFit: {
 			type: String,
 			default: () => '',
 		},
