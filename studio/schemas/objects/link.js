@@ -4,6 +4,9 @@ export default {
 	title: "Link",
 	name: "link",
 	type: "object",
+	initialValue: {
+		linkType: "external",
+	},
 	fields: [
 		{
 			title: "Type",

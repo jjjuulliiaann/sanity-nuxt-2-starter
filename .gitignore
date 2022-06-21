@@ -9,5 +9,6 @@
 
 # VS Code
 *.code-workspace
+
 # Local Netlify folder
 .netlify
