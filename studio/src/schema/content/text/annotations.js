@@ -9,6 +9,10 @@ export const annotations = [
 		blockEditor: {
 			icon: BiLink,
 		},
+		initialValue: {
+			linkType: "external",
+			blank: false,
+		},
 		fields: [
 			{
 				title: "Type",
@@ -20,6 +24,7 @@ export const annotations = [
 						{ title: "Internal", value: "internal" },
 					],
 					layout: "radio",
+					direction: "horizontal",
 				},
 			},
 			{
@@ -45,9 +50,9 @@ export const annotations = [
 				type: "reference",
 				hidden: ({ parent }) => parent?.linkType !== "internal",
 				to: [
-					{ type: "templateHome" },
-					{ type: "templateText" },
-					{ type: "templateProjects" },
+					{ type: "pageHome" },
+					{ type: "pageProjects" },
+					{ type: "pageText" },
 					{ type: "project" },
 				],
 			},

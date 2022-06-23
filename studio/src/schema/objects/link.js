@@ -60,9 +60,9 @@ export default {
 					}
 				}),
 			to: [
-				{ type: "templateHome" },
-				{ type: "templateText" },
-				{ type: "templateProjects" },
+				{ type: "pageHome" },
+				{ type: "pageProjects" },
+				{ type: "pageText" },
 				{ type: "project" },
 			],
 		},
