@@ -1,7 +1,6 @@
 // imports
 import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
-
 // documents
 import project from "./documents/collections/project";
 import templateHome from "./documents/pages/templateHome";
@@ -9,23 +8,20 @@ import templateProjects from "./documents/pages/templateProjects";
 import templateText from "./documents/pages/templateText";
 import siteOptions from "./documents/singletons/siteOptions";
 import siteNavigation from "./documents/singletons/siteNavigation";
+// content
+import contentText from "./content/contentText";
+import contentParagraph from "./content/contentParagraph";
+import contentFull from "./content/contentFull";
+import blockImage from "./content/blocks/blockImage";
+import blockLoop from "./content/blocks/blockLoop";
 // objects
-import contentText from "./objects/content/contentText";
-import contentParagraph from "./objects/content/contentParagraph";
-import contentFull from "./objects/content/contentFull";
-import blockImage from "./objects/content/blocks/blockImage";
-import blockLoop from "./objects/content/blocks/blockLoop";
 import link from "./objects/link";
 import picture from "./objects/picture";
 import seo from "./objects/seo";
 import video from "./objects/video";
 
-// Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
-	// We name our schema
 	name: "default",
-	// Then proceed to concatenate our document type
-	// to the ones provided by any plugins that are installed
 	types: schemaTypes.concat([
 		// documents
 		project,
@@ -34,12 +30,13 @@ export default createSchema({
 		templateText,
 		siteOptions,
 		siteNavigation,
-		// objects
+		// content
 		contentText,
 		contentParagraph,
 		contentFull,
 		blockImage,
 		blockLoop,
+		// objects
 		link,
 		picture,
 		seo,

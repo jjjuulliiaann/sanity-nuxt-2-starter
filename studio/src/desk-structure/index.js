@@ -1,5 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import PreviewComponent from "./utils/preview";
+import PreviewComponent from "./../utils/preview";
 import { BiBookAlt } from "react-icons/bi/";
 
 // create preview view
