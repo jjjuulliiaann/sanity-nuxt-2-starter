@@ -18,6 +18,7 @@ import blockVideo from "./content/blocks/blockVideo";
 // objects
 import link from "./objects/link";
 import picture from "./objects/picture";
+import pictureTitled from "./objects/pictureTitled";
 import seo from "./objects/seo";
 import video from "./objects/video";
 
@@ -41,6 +42,7 @@ export default createSchema({
 		// objects
 		link,
 		picture,
+		pictureTitled,
 		seo,
 		video,
 	]),

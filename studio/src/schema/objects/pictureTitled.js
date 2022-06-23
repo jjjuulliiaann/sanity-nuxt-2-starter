@@ -1,6 +1,6 @@
 export default {
 	title: "Image",
-	name: "picture",
+	name: "pictureTitled",
 	type: "image",
 	options: {
 		hotspot: true,
@@ -8,23 +8,33 @@ export default {
 	},
 	fields: [
 		{
+			title: "Alternative Text",
 			name: "alt",
 			type: "string",
-			title: "Alternative Text",
 			description: "Important for SEO and Accessibility.",
+		},
+		{
+			title: "Caption",
+			name: "caption",
+			type: "text",
+			rows: 4,
+			options: {
+				isHighlighted: true,
+			},
 		},
 	],
 	preview: {
 		select: {
 			asset: "asset.url",
+			title: "title",
 			dimensions: "asset.metadata.dimensions",
 			filename: "asset.originalFilename",
 		},
 		prepare(selection) {
-			const { asset, dimensions, filename } = selection;
+			const { asset, title, dimensions, filename } = selection;
 			return {
 				imageUrl: asset ? asset : "",
-				title: filename,
+				title: title ? title : filename,
 				subtitle: dimensions
 					? `${dimensions.width}px × ${dimensions.height}px`
 					: "…",

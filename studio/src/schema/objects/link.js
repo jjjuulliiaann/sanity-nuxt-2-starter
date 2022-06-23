@@ -87,9 +87,9 @@ export default {
 			linkTemplate,
 		}) {
 			const previewSymbol = {
-				templateHome: BiHome,
-				templateText: BiFile,
-				templateProjects: BiBookAlt,
+				pageHome: BiHome,
+				pageProjects: BiBookAlt,
+				pageText: BiFile,
 				project: BiBookAlt,
 			};
 			return {
@@ -99,10 +99,10 @@ export default {
 							? externalTitle
 							: "Untitled Link"
 						: internalLink && internalTitle
-						? internalSlug
-							? internalTitle
-							: "Home"
-						: "Untitled Link",
+						? internalTitle
+						: linkTemplate === "pageHome"
+						? "Home"
+						: "",
 				subtitle: linkType === "external" ? url : "",
 				media:
 					linkType === "external"
