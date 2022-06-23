@@ -1,13 +1,13 @@
 <template>
-	<main class="projects">
+	<main class="Projects">
 		<h1>{{ page.title }}</h1>
 
-		<section v-if="page.projects" class="projects__grid">
+		<section v-if="page.projects" class="Projects_Grid">
 			<ul>
 				<li
 					v-for="project in page.projects"
 					:key="project.id"
-					class="projects__item"
+					class="Projects_Item"
 				>
 					<ElementsTextLink
 						link-type="internal"
@@ -49,28 +49,31 @@ export default {
 <style scoped>
 @import '~/styles/variables';
 
-.projects {
+.Projects {
 	position: relative;
 	min-height: 90vh;
 	padding: 1rem;
 }
 
-.projects__grid {
+.Projects_Grid {
 	position: relative;
+
 	padding: 2rem 0;
 }
 
-.projects__grid ul {
-	display: flex;
+.Projects_Grid ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+	gap: 1rem;
 }
 
-.projects__item {
+.Projects_Item {
 	position: relative;
 	border: 1px solid rgb(var(--clr-black) / 0.1);
 	border-radius: 1rem;
 }
 
-.projects__item a {
+.Projects_Item a {
 	display: block;
 	padding: 1rem;
 }

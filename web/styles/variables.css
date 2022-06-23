@@ -1,24 +1,18 @@
-@custom-media --width-mobile-01 (min-width: 320px);
-@custom-media --width-mobile-02 (min-width: 375px);
-@custom-media --width-mobile-03 (min-width: 450px);
-
-@custom-media --width-tablet-01 (min-width: 700px);
-@custom-media --width-tablet-02 (min-width: 850px);
-
-@custom-media --width-desktop-01 (min-width: 1000px);
-@custom-media --width-desktop-02 (min-width: 1300px);
-@custom-media --width-desktop-03 (min-width: 1500px);
-@custom-media --width-desktop-04 (min-width: 2000px);
-
-@custom-media --height-01 (max-height: 550px);
-@custom-media --height-02 (max-height: 750px);
-@custom-media --height-03 (max-height: 900px);
-
 :root {
 	--clr-black: 0 0 0;
+	--rgb-black: rgb(var(--clr-black));
 	--clr-white: 255 255 255;
-	--clr-accent: 235 82 82;
+	--rgb-white: rgb(var(--clr-white));
+	--clr-accent: 0 81 255;
+	--rgb-accent: rgb(var(--clr-accent));
+
 	--preview-banner-height: 43px;
-	--header-height-01: 4rem;
-	--header-height-02: 6rem;
+	--header-height: 4rem;
+}
+
+
+@media (--w-desktop-1) {
+	:root {
+		--header-height: 6rem;
+	}
 }

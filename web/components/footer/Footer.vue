@@ -1,5 +1,5 @@
 <template>
-	<footer class="footer">
+	<footer class="Footer">
 		<p>
 			© {{ year }},
 			<a href="https:julianschmidt.me" target="_blank"
@@ -27,17 +27,17 @@ export default {
 <style scoped>
 @import '~/styles/variables';
 
-.footer {
+.Footer {
 	position: relative;
 	padding: 1rem;
 
-	@media (--width-tablet-01) {
+	@media (--w-tablet-1) {
 		display: flex;
 		justify-content: space-between;
 	}
 }
 
-.footer a {
+.Footer a {
 	color: inherit;
 	text-decoration: inherit;
 }

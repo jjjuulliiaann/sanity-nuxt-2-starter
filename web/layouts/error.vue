@@ -2,10 +2,10 @@
 	<main class="error">
 		<h1>{{ error.statusCode }}</h1>
 
-		<p v-if="error.statusCode === 404" class="text-01">
+		<p v-if="error.statusCode === 404" class="text-base">
 			Die Seite konnte nicht gefunden werden.
 		</p>
-		<p v-else class="text-01">Error: {{ error.message }}</p>
+		<p v-else class="text-base">Error: {{ error.message }}</p>
 	</main>
 </template>
 

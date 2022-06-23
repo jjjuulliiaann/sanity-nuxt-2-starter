@@ -1,8 +1,7 @@
 <template>
-	<header class="header">
+	<header class="Header">
 		<HeaderPreviewBanner v-show="$nuxt.isPreview" />
-		<HeaderCookies />
-		<div class="header__bar">
+		<div class="Header_Bar">
 			<n-link to="/"
 				>{{ siteOptions ? siteOptions.name : 'Untitled' }}
 				{{ siteOptions ? siteOptions.headerTitle : 'Untitled' }}</n-link
@@ -25,7 +24,7 @@ export default {
 <style scoped>
 @import '~/styles/variables';
 
-header {
+.Header {
 	position: sticky;
 	top: 0;
 	background: rgb(var(--clr-white));
@@ -33,12 +32,12 @@ header {
 	z-index: 999;
 }
 
-.header__bar {
+.Header_Bar {
 	position: relative;
 	width: 100%;
 	padding: 1rem;
 
-	@media (--width-tablet-01) {
+	@media (--w-tablet-1) {
 		display: flex;
 		justify-content: space-between;
 	}

@@ -1,16 +1,16 @@
 <template>
-	<main class="project">
+	<main class="Project">
 		<article>
 			<h1 v-if="page.title">{{ page.title }}</h1>
 
 			<section
 				v-if="page.content"
-				class="project__text blockcontent text-01"
+				class="Project_Text blockcontent text-base"
 			>
 				<ElementsTextBlock :blocks="page.content" />
 			</section>
 
-			<section class="project__images">
+			<section class="Project_Images">
 				<ul v-if="page.images">
 					<li v-for="mediaEl in page.images" :key="mediaEl._key">
 						<ElementsMediaBaseImage
@@ -70,28 +70,28 @@ export default {
 <style scoped>
 @import '~/styles/variables';
 
-.project {
+.Project {
 	position: relative;
 	min-height: 90vh;
 	padding: 1rem;
 }
 
-.project__text {
+.Project_Text {
 	padding: 2rem 0;
 }
 
-.project__images {
+.Project_Images {
 	position: relative;
 	max-width: 60rem;
 	padding: 4rem 0;
 }
 
-.project__images li {
+.Project_Images li {
 	line-height: 0;
 	margin-bottom: 2rem;
 }
 
-.project__images >>> img {
+.Project_Images >>> img {
 	width: 100%;
 	height: auto;
 }

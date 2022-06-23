@@ -1,10 +1,10 @@
 <template>
 	<nav>
-		<ul class="footer-navigation">
+		<ul class="Navigation">
 			<li
 				v-for="link in siteOptions.footerLinks"
 				:key="link.id"
-				class="navigation__item"
+				class="Navigation_Item"
 			>
 				<ElementsTextLink
 					:link-type="link.linkType"
@@ -33,13 +33,13 @@ export default {
 <style scoped>
 @import '~/styles/variables';
 
-.footer-navigation {
+.Navigation {
 	display: flex;
 	list-style: none;
 	margin: 0 -1rem;
 }
 
-.navigation__item {
+.Navigation_Item {
 	padding: 0 1rem;
 }
 </style>

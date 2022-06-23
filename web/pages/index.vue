@@ -1,7 +1,7 @@
 <template>
-	<main class="home">
+	<main class="Home">
 		<h1>{{ page ? page.title : 'Untitled' }}</h1>
-		<div class="blockcontent text-01">
+		<div class="Home_Content blockcontent text-base">
 			<ElementsTextBlock v-if="page.content" :blocks="page.content" />
 		</div>
 	</main>
@@ -31,17 +31,20 @@ export default {
 <style scoped>
 @import '~/styles/variables';
 
-.home {
+.Home {
 	position: relative;
 	min-height: 90vh;
 	padding: 1rem;
+
+	@media (--w-desktop-1) {
+	}
 }
 
-.blockcontent {
-	padding: 2rem 0;
+.Home_Content {
+	padding: 1rem 0;
 }
 
-.blockcontent >>> img {
+.Home_Content >>> img {
 	max-width: 20rem;
 	height: auto;
 }

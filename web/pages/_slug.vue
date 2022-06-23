@@ -1,8 +1,8 @@
 <template>
-	<main class="textpage">
+	<main class="TextPage">
 		<h1>{{ page.title }}</h1>
 
-		<section class="blockcontent text-01">
+		<section class="TextPage_Content blockcontent text-base">
 			<ElementsTextBlock :blocks="page.content" />
 		</section>
 	</main>
@@ -45,13 +45,13 @@ export default {
 <style scoped>
 @import '~/styles/variables';
 
-.textpage {
+.TextPage {
 	position: relative;
 	min-height: 90vh;
 	padding: 1rem;
 }
 
-.blockcontent {
+.TextPage_Content {
 	padding: 2rem 0;
 }
 </style>

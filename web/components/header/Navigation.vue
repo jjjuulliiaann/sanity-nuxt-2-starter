@@ -37,7 +37,7 @@ export default {
 	list-style: none;
 	margin: 0 -1rem;
 
-	@media (--width-mobile-03) {
+	@media (--w-mobile-3) {
 		display: flex;
 	}
 }
