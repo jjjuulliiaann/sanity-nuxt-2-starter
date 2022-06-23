@@ -9,19 +9,8 @@
 </template>
 
 <script>
-import groq from 'groq'
-import { contentBlockQuery, seoQuery } from '~/plugins/sanity'
+import { pageTextQuery } from '@/queries/contentQueries'
 import seo from '~/mixins/seo.js'
-
-const query = groq`
-	*[_type == 'templateText' && slug.current == $slug] | order(_updatedAt desc) [0]{
-		...,
-		content[] {
-			${contentBlockQuery}
-		},
-		${seoQuery}
-	}
-`
 
 export default {
 	mixins: [seo],
@@ -44,7 +33,7 @@ export default {
 		const params = this.$route.params
 
 		try {
-			const result = await this.$sanity.fetch(query, params)
+			const result = await this.$sanity.fetch(pageTextQuery, params)
 			this.page = result
 		} catch (error) {
 			console.error(error)

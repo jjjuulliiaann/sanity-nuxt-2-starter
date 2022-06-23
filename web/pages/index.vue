@@ -1,6 +1,6 @@
 <template>
 	<main class="home">
-		<h1>{{ page ? page.title : 'Untitled' }}</h1>h1>{{ page.title }}</h1>
+		<h1>{{ page ? page.title : 'Untitled' }}</h1>
 		<div class="blockcontent text-01">
 			<ElementsTextBlock v-if="page.content" :blocks="page.content" />
 		</div>
@@ -8,16 +8,7 @@
 </template>
 
 <script>
-import groq from 'groq'
-import { contentBlockQuery } from '~/plugins/sanity'
-
-const query = groq`*[(
-	_type == "templateHome")] | order(_updatedAt desc)[0]{
-		...,
-		content[] {
-			${contentBlockQuery}
-		},
-}`
+import { homeQuery } from '@/queries/contentQueries'
 
 export default {
 	data() {
@@ -28,7 +19,7 @@ export default {
 
 	async fetch() {
 		try {
-			const result = await this.$sanity.fetch(query)
+			const result = await this.$sanity.fetch(homeQuery)
 			this.page = result
 		} catch (error) {
 			console.error(error)

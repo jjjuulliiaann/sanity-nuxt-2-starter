@@ -34,21 +34,8 @@
 </template>
 
 <script>
-import groq from 'groq'
-import { contentBlockQuery, imageLoopArrayQuery } from '~/plugins/sanity'
+import { singleProjectQuery } from '@/queries/contentQueries'
 import seo from '~/mixins/seo.js'
-
-const query = groq`
-	*[_type == 'project' && slug.current == $slug] | order(_updatedAt desc) [0]{
-		...,
-		content[] {
-			${contentBlockQuery}
-		},
-		images[]{
-			${imageLoopArrayQuery}
-		},
-	}
-`
 
 export default {
 	mixins: [seo],
@@ -71,7 +58,7 @@ export default {
 		const params = this.$route.params
 
 		try {
-			const result = await this.$sanity.fetch(query, params)
+			const result = await this.$sanity.fetch(singleProjectQuery, params)
 			this.page = result
 		} catch (error) {
 			console.error(error)

@@ -1,9 +1,5 @@
 <template>
-	<nuxt-link
-		v-if="linkType === 'internal'"
-		:to="slug ? { path: `/${subPath}${slug}` } : '/'"
-		class="nav-link"
-	>
+	<nuxt-link v-if="linkType === 'internal'" :to="internalRoute" class="link">
 		<slot></slot>
 	</nuxt-link>
 
@@ -12,7 +8,7 @@
 		:href="href"
 		:target="blank ? '_blank' : '_self'"
 		:rel="blank ? 'noopener' : ''"
-		class="nav-link"
+		class="link"
 	>
 		<slot></slot>
 	</a>
@@ -21,18 +17,6 @@
 <script>
 export default {
 	props: {
-		title: {
-			type: String,
-			default: () => '',
-		},
-		target: {
-			type: String,
-			default: () => '',
-		},
-		slug: {
-			type: String,
-			default: () => '',
-		},
 		linkType: {
 			type: String,
 			default: () => 'external',
@@ -45,27 +29,22 @@ export default {
 			type: Boolean,
 			default: () => false,
 		},
-		template: {
+		route: {
+			type: String,
+			default: () => '',
+		},
+		slug: {
 			type: String,
 			default: () => '',
 		},
 	},
 
-	data() {
-		return {
-			linkPaths: {
-				templateText: '',
-				project: 'projects/',
-				templateTest: 'blubb/',
-			},
-		}
-	},
-
 	computed: {
-		subPath() {
-			return this.linkPaths[this.template]
-				? this.linkPaths[this.template]
-				: ''
+		internalRoute() {
+			return {
+				name: this.route ?? 'index',
+				params: this.slug ? { slug: this.slug } : {},
+			}
 		},
 	},
 }

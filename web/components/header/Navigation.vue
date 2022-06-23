@@ -7,12 +7,11 @@
 				class="navigation__item"
 			>
 				<ElementsTextLink
-					:target="link.target"
-					:slug="link.slug"
 					:link-type="link.linkType"
 					:href="link.href"
 					:blank="link.blank"
-					:template="link.template"
+					:route="link.route"
+					:slug="link.slug"
 				>
 					{{ link.title }}
 				</ElementsTextLink>

@@ -2,17 +2,17 @@
 	<main class="projects">
 		<h1>{{ page.title }}</h1>
 
-		<section class="projects__grid">
+		<section v-if="page.projects" class="projects__grid">
 			<ul>
 				<li
-					v-for="project in projects"
+					v-for="project in page.projects"
 					:key="project.id"
 					class="projects__item"
 				>
 					<ElementsTextLink
-						:slug="project.slug.current"
 						link-type="internal"
-						template="project"
+						route="projects-slug"
+						:slug="project.slug.current"
 					>
 						{{ project.title }}
 					</ElementsTextLink>
@@ -23,18 +23,8 @@
 </template>
 
 <script>
-import groq from 'groq'
+import { projectsQuery } from '@/queries/contentQueries'
 import seo from '~/mixins/seo.js'
-
-const query = groq`{
-	"page": *[_type == "templateProjects"] | order(_updatedAt desc) [0] {
-		...
-	},
-	"projects": *[(_type == "project") && !(_id in path("drafts.**"))]
-	| order(_updatedAt desc){
-		...
-	}
-}`
 
 export default {
 	mixins: [seo],
@@ -42,15 +32,13 @@ export default {
 	data() {
 		return {
 			page: {},
-			projects: [],
 		}
 	},
 
 	async fetch() {
 		try {
-			const result = await this.$sanity.fetch(query)
-			this.page = result.page
-			this.projects = result.projects
+			const result = await this.$sanity.fetch(projectsQuery)
+			this.page = result
 		} catch (error) {
 			console.error(error)
 		}
