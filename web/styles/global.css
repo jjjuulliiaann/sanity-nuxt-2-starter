@@ -16,8 +16,7 @@ html {
 
 body {
 	-webkit-tap-highlight-color: transparent;
-	background: rgb(var(--clr-white));
-	color: rgb(var(--clr-black));
+	background: var(--rgb-white);
 }
 
 /* layout */

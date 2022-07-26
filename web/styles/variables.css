@@ -5,13 +5,12 @@
 	--rgb-white: rgb(var(--clr-white));
 	--clr-accent: 0 81 255;
 	--rgb-accent: rgb(var(--clr-accent));
-
 	--preview-banner-height: 43px;
 	--header-height: 4rem;
 }
 
 
-@media (--w-desktop-1) {
+@media (--w-tablet-1) {
 	:root {
 		--header-height: 6rem;
 	}

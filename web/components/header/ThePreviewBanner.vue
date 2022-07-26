@@ -18,10 +18,9 @@
 @import '~/styles/variables';
 
 .preview-banner {
-	--_clr-darkgrey: rgb(102 104 105);
-	--_clr-grey: rgb(86 89 92);
-	--_clr-lightgrey: rgba(86 89 92 / 0.4);
-	--_clr-blue: rgb(34 118 252);
+	--_rgb-grey: rgb(86 89 92);
+	--_rgb-lightgrey: rgba(86 89 92 / 0.4);
+	--_rgb-blue: rgb(34 118 252);
 	position: sticky;
 	display: flex;
 	align-items: center;
@@ -29,16 +28,16 @@
 	left: 0;
 	width: 100%;
 	height: var(--preview-banner-height);
-	padding: 0 1.2rem;
-	background: rgb(var(--clr-white));
-	color: rgb(var(--clr-black));
-	border-bottom: 1px solid var(--_clr-lightgrey);
+	padding: 0 12px;
+	background: var(--rgb-white);
+	color: var(--rgb-black);
+	border-bottom: 1px solid var(--_rgb-lightgrey);
 	z-index: 1000;
 }
 
 .preview-banner .preview-banner__button {
-	padding: 0.1rem 0.7rem;
-	margin-right: 1rem;
+	padding: 1px 7px;
+	margin-right: 10px;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
 		'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
 		'Helvetica Neue', sans-serif;
@@ -46,17 +45,17 @@
 	font-size: 13px;
 	line-height: 1;
 	text-align: left;
-	color: var(--_clr-grey);
+	color: var(--_rgb-grey);
 	border-radius: 3px;
-	border: 1px solid var(--_clr-lightgrey);
+	border: 1px solid var(--_rgb-lightgrey);
 	transition: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
 	.preview-banner .preview-banner__button:hover {
-		background: var(--_clr-blue);
-		color: rgb(var(--clr-white));
-		border-color: var(--_clr-blue);
+		background: var(--_rgb-blue);
+		color: var(--rgb-white);
+		border-color: var(--_rgb-blue);
 	}
 }
 </style>

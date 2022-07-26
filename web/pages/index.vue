@@ -35,9 +35,6 @@ export default {
 	position: relative;
 	min-height: 90vh;
 	padding: 1rem;
-
-	@media (--w-desktop-1) {
-	}
 }
 
 .Home_Content {

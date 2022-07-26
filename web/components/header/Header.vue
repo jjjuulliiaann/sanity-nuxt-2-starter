@@ -1,6 +1,6 @@
 <template>
 	<header class="Header">
-		<HeaderPreviewBanner v-show="$nuxt.isPreview" />
+		<TheHeaderPreviewBanner v-show="$nuxt.isPreview" />
 		<div class="Header_Bar">
 			<n-link to="/"
 				>{{ siteOptions ? siteOptions.name : 'Untitled' }}
@@ -27,7 +27,7 @@ export default {
 .Header {
 	position: sticky;
 	top: 0;
-	background: rgb(var(--clr-white));
+	background: var(--rgb-white);
 	border-bottom: 1px solid rgb(var(--clr-black) / 0.1);
 	z-index: 999;
 }
