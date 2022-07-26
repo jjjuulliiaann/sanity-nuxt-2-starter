@@ -6,8 +6,8 @@ import project from "./documents/collections/project";
 import pageHome from "./documents/pages/pageHome";
 import pageProjects from "./documents/pages/pageProjects";
 import pageText from "./documents/pages/pageText";
-import siteOptions from "./documents/singletons/siteOptions";
-import siteNavigation from "./documents/singletons/siteNavigation";
+import siteOptions from "./documents/site/siteOptions";
+import siteNavigation from "./documents/site/siteNavigation";
 // content
 import contentMinimal from "./content/contentMinimal";
 import contentText from "./content/contentText";
@@ -16,7 +16,8 @@ import blockImage from "./content/blocks/blockImage";
 import blockLoop from "./content/blocks/blockLoop";
 import blockVideo from "./content/blocks/blockVideo";
 // objects
-import link from "./objects/link";
+import externalLink from "./objects/externalLink";
+import internalLink from "./objects/internalLink";
 import picture from "./objects/picture";
 import pictureTitled from "./objects/pictureTitled";
 import seo from "./objects/seo";
@@ -40,7 +41,8 @@ export default createSchema({
 		blockLoop,
 		blockVideo,
 		// objects
-		link,
+		externalLink,
+		internalLink,
 		picture,
 		pictureTitled,
 		seo,

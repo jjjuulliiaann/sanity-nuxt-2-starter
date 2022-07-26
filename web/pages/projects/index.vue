@@ -10,7 +10,7 @@
 					class="Projects_Item"
 				>
 					<ElementsTextLink
-						link-type="internal"
+						link-type="internalLink"
 						route="projects-slug"
 						:slug="project.slug.current"
 					>
@@ -71,10 +71,18 @@ export default {
 	position: relative;
 	border: 1px solid rgb(var(--clr-black) / 0.1);
 	border-radius: 1rem;
+	overflow: hidden;
 }
 
 .Projects_Item a {
 	display: block;
 	padding: 1rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.Projects_Item a:hover {
+		color: var(--rgb-white);
+		background: var(--rgb-accent);
+	}
 }
 </style>

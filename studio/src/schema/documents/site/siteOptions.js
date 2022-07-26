@@ -50,7 +50,10 @@ export default {
 			editModal: "popover",
 			of: [
 				{
-					type: "link",
+					type: "internalLink",
+				},
+				{
+					type: "externalLink",
 				},
 			],
 			group: "footer",

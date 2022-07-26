@@ -32,8 +32,11 @@ export default {
 					block: BlockText,
 				},
 				marks: {
-					link: Link,
+					externalLink: Link,
+					internalLink: Link,
 					download: FileLink,
+					underline: 'u',
+					'strike-through': 's',
 				},
 				styles: {
 					normal: 'p',

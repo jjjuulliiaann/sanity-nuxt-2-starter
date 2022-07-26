@@ -1,6 +1,6 @@
 <template>
 	<header class="Header">
-		<TheHeaderPreviewBanner v-show="$nuxt.isPreview" />
+		<HeaderThePreviewBanner v-show="$nuxt.isPreview" />
 		<div class="Header_Bar">
 			<n-link to="/"
 				>{{ siteOptions ? siteOptions.name : 'Untitled' }}

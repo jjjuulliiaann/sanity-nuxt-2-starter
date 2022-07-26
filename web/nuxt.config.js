@@ -85,6 +85,8 @@ export default {
 		// https://go.nuxtjs.dev/eslint
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/sanity/module',
+		'@vueuse/core/nuxt',
+		'@nuxtjs/composition-api/module',
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules

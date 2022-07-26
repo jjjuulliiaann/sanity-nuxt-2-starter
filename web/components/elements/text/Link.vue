@@ -1,51 +1,57 @@
 <template>
-	<nuxt-link v-if="linkType === 'internal'" :to="internalRoute" class="link">
+	<nuxt-link
+		v-if="props.linkType === 'internalLink'"
+		:to="internalRoute"
+		class="link"
+	>
 		<slot></slot>
 	</nuxt-link>
 
 	<a
 		v-else
-		:href="href"
-		:target="blank ? '_blank' : '_self'"
-		:rel="blank ? 'noopener' : ''"
+		:href="props.href"
+		:target="props.blank ? '_blank' : '_self'"
+		:rel="props.blank ? 'noopener' : ''"
 		class="link"
 	>
 		<slot></slot>
 	</a>
 </template>
 
-<script>
-export default {
-	props: {
-		linkType: {
-			type: String,
-			default: () => 'external',
-		},
-		href: {
-			type: String,
-			default: () => '',
-		},
-		blank: {
-			type: Boolean,
-			default: () => false,
-		},
-		route: {
-			type: String,
-			default: () => '',
-		},
-		slug: {
-			type: String,
-			default: () => '',
-		},
-	},
+<script setup>
+import { defineProps, computed, onMounted } from '@nuxtjs/composition-api'
 
-	computed: {
-		internalRoute() {
-			return {
-				name: this.route ?? 'index',
-				params: this.slug ? { slug: this.slug } : {},
-			}
-		},
+const props = defineProps({
+	linkType: {
+		type: String,
+		default: () => 'externalLink',
 	},
-}
+	href: {
+		type: String,
+		default: () => '',
+	},
+	blank: {
+		type: Boolean,
+		default: () => false,
+	},
+	route: {
+		type: String,
+		default: () => '',
+	},
+	slug: {
+		type: String,
+		default: () => '',
+	},
+})
+
+const internalRoute = computed(() => {
+	return {
+		name: props.route ?? 'index',
+		params: props.slug ? { slug: props.slug } : {},
+	}
+})
+
+onMounted(() => {
+	console.log(props)
+})
 </script>
